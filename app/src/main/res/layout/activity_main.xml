@@ -18,13 +18,13 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hELLO"
+        android:text="hELLO - oi tudo bem coco coco coco coco coco ?"
         tools:ignore="MissingConstraints" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="hELLO"
+        android:text="HELLO 123456789"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="38dp"
         tools:layout_editor_absoluteY="100dp" />
