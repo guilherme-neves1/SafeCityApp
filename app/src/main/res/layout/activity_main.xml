@@ -19,14 +19,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="hELLO - oi tudo bem coco coco coco coco coco ?"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteX="55dp"
+        tools:layout_editor_absoluteY="144dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="HELLO 123456789"
         tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="100dp" />
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="262dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
