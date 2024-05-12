@@ -1,92 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="@drawable/login_background"
+    android:gravity="center"
+    android:padding="16dp"
+    tools:context=".MainActivity">
 
-    <!-- SafeCity -->
-    <TextView
-        android:id="@+id/textViewAppName"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="SafeCity"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginBottom="16dp"/>
+        android:gravity="center"
+        android:orientation="vertical" >
 
-    <!-- Logo, Login, Senha, Esqueci minha senha (Grupo do meio) -->
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/middleGroup"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/textViewAppName"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/textViewRightsReserved">
-
-        <!-- Logo -->
-        <ImageView
-            android:id="@+id/imageViewLogo"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/logo"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/editTextUsername"/>
-
-        <!-- Login -->
-        <EditText
-            android:id="@+id/editTextUsername"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Username"
-            android:inputType="text"
-            app:layout_constraintTop_toBottomOf="@id/imageViewLogo"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/editTextPassword"/>
-
-        <!-- Senha -->
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
-            app:layout_constraintTop_toBottomOf="@id/editTextUsername"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/textViewForgotPassword"/>
-
-        <!-- Esqueci minha senha -->
         <TextView
-            android:id="@+id/textViewForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Esqueci minha senha"
-            android:textColor="@android:color/darker_gray"
-            app:layout_constraintTop_toBottomOf="@id/editTextPassword"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"/>
+            android:text="SafeCity"
+            android:textColor="@color/white"
+            android:textSize="40sp"
+            android:layout_marginBottom="12dp"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:layout_width="160dp"
+            android:layout_height="160dp"
+            app:shapeAppearanceOverlay="@style/circular"
+            android:padding="5dp"
+            app:strokeWidth="1dp"
+            app:strokeColor="#FF4500"
+            android:src="@drawable/logo"
+            />
 
-    <!-- Direitos Reservados (Grupo inferior) -->
-    <TextView
-        android:id="@+id/textViewRightsReserved"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Direitos reservados ©"
-        android:textColor="@android:color/darker_gray"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:layout_marginTop="16dp"/>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:hint="Digite seu email"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="18dp"
+            android:inputType="text"
+            android:id="@+id/email_input"
+            />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:hint="Digite sua senha"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:textSize="20sp"
+            android:background="@drawable/rounded_corner"
+            android:padding="18dp"
+            android:inputType="textPassword"
+            android:id="@+id/password_input"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login"
+            android:backgroundTint="#ED764D"
+            android:textColor="#FFF"
+            android:padding="12dp"
+            android:layout_marginTop="32dp"
+            android:textSize="20sp"
+            android:id="@+id/login_btn"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Esqueceu a senha?"
+            android:textSize="18sp"
+            android:textColor="#DAD2D2"
+            android:layout_marginTop="20dp"
+            />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Criar nova conta"
+            android:backgroundTint="#0000"
+            app:strokeWidth="2dp"
+            app:strokeColor="#ED764D"
+            android:textColor="#ED764D"
+            android:padding="12dp"
+            android:layout_marginTop="70dp"
+            android:textSize="20sp"
+            android:id="@+id/create_btn"
+            />
+        
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Todos os direitos reservados ©"
+            android:textColor="#DAD2D2"
+            android:textSize="14sp"
+            android:layout_marginTop="10dp"/>
+
+
+    </LinearLayout>
+
+</RelativeLayout>
