@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">SafeCityApp</string>
+
+    <string name="my_map_api_key">Teste</string>
 </resources>
