@@ -1,7 +1,8 @@
+import java.util.Properties
+
 plugins {
     id("com.android.application")
 }
-
 
 android {
     namespace = "com.example.safecityapp"
@@ -13,6 +14,8 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+        val mapsApiKey = getMapsApiKey()
+        resValue("string", "MAPS_API_KEY", mapsApiKey)
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -27,7 +30,12 @@ android {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+}
 
+fun getMapsApiKey(): String {
+    val properties = Properties()
+    properties.load(project.rootProject.file("local.properties").inputStream())
+    return properties.getProperty("MAPS_API_KEY") ?: ""
 }
 
 dependencies {
