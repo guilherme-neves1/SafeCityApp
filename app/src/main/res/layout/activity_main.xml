@@ -44,7 +44,7 @@
             android:background="@drawable/rounded_corner"
             android:padding="18dp"
             android:inputType="text"
-            android:id="@+id/email_input"
+            android:id="@+id/emailInput"
             />
 
         <EditText
@@ -58,7 +58,7 @@
             android:background="@drawable/rounded_corner"
             android:padding="18dp"
             android:inputType="textPassword"
-            android:id="@+id/password_input"
+            android:id="@+id/passwordInput"
             />
 
         <Button
@@ -70,7 +70,7 @@
             android:padding="12dp"
             android:layout_marginTop="32dp"
             android:textSize="20sp"
-            android:id="@+id/login_btn"/>
+            android:id="@+id/loginBtn"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -92,7 +92,7 @@
             android:padding="12dp"
             android:layout_marginTop="70dp"
             android:textSize="20sp"
-            android:id="@+id/create_btn"
+            android:id="@+id/createAccBtn"
             />
         
         <TextView
