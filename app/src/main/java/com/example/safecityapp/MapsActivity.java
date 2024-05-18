@@ -88,8 +88,8 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         // Adicionar círculos transparentes
         adicionarCirculos(myMap);
 
-//        // Adicionar polígono para delimitar Guarulhos
-//        adicionarPoligonoGuarulhos(myMap);
+       // Adicionar polígono para delimitar Guarulhos
+        // adicionarPoligonoGuarulhos(myMap);
     }
 
     private void adicionarCirculos(GoogleMap googleMap) {
