@@ -75,6 +75,8 @@
             android:padding="8dp"
             android:layout_marginTop="6dp"
             android:textSize="18sp"
+            app:strokeWidth="2dp"
+            app:strokeColor="#D5543A"
             />
 
         <TextView
@@ -89,17 +91,17 @@
             />
 
         <Button
+            android:id="@+id/createAccBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Criar nova conta"
-            android:backgroundTint="#0000"
-            app:strokeWidth="2dp"
-            app:strokeColor="#E2725B"
-            android:textColor="#E2725B"
-            android:padding="8dp"
             android:layout_marginTop="70dp"
+            android:padding="8dp"
+            android:text="Criar nova conta"
             android:textSize="18sp"
-            android:id="@+id/createAccBtn"
+            android:backgroundTint="#E2725B"
+            android:textColor="#FFF"
+            app:strokeWidth="2dp"
+            app:strokeColor="#D5543A"
             />
         
         <TextView
