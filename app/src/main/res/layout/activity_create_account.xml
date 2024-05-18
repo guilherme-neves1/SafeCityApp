@@ -64,16 +64,15 @@
             android:layout_below="@+id/birthInput"
             android:layout_marginTop="24dp"
 
-            android:hint="Sexo"
             android:textSize="18sp"
             android:textColorHint="#A8A8A8"
-            android:textColor="#A8A8A8"
+            android:textColor="#FFF"
             android:backgroundTint="#404040"
 
             android:background="@drawable/rounded_corner"
             android:padding="18dp"
             android:spinnerMode="dropdown"
-            android:popupBackground="@color/white"
+            android:popupBackground="@color/black"
             />
 
         <EditText
@@ -188,13 +187,17 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cityInput"
             android:layout_marginTop="24dp"
+
+            android:textSize="18sp"
             android:textColorHint="#A8A8A8"
             android:textColor="#A8A8A8"
-            android:textSize="18sp"
+
             android:background="@drawable/rounded_corner"
-            android:backgroundTint="#404040"
             android:padding="18dp"
-            android:spinnerMode="dropdown"/>
+            android:backgroundTint="#404040"
+            android:spinnerMode="dropdown"
+            android:popupBackground="@color/black"
+            />
 
         <EditText
             android:id="@+id/telInput"

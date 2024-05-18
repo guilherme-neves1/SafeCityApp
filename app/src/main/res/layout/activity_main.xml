@@ -39,11 +39,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Email"
+
+            android:textColor="#FFF"
             android:textColorHint="#A8A8A8"
             android:textSize="18sp"
+
             android:background="@drawable/rounded_corner"
             android:backgroundTint="#404040"
             android:padding="18dp"
+
             android:inputType="text"
             android:focusable="true"
             android:clickable="true"
@@ -55,11 +59,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Senha"
+
+            android:textColor="#FFF"
             android:textColorHint="#A8A8A8"
             android:textSize="18sp"
+
             android:background="@drawable/rounded_corner"
             android:backgroundTint="#404040"
             android:padding="18dp"
+
             android:inputType="textPassword"
             android:layout_marginBottom="16dp"/>
 
@@ -99,7 +107,7 @@
             android:textColor="#FFF"
             app:strokeWidth="2dp"
             app:strokeColor="#D5543A"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             />
 
     </LinearLayout>
