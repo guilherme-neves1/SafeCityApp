@@ -1,5 +1,6 @@
 package com.example.safecityapp;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,12 +10,13 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CreateAccountActivity extends AppCompatActivity {
 
     EditText fullNameInput, birthInput, cepInput, sexInput,
-            addressInput, numInput, complementoInput,
-            bairroInput, cidadeInput, estadoInput,
-            telefoneInput, emailInput, passwordInput,
+            addressInput, numInput, complInput,
+            distInput, cityInput, stateInput,
+            telInput, emailInput, passwordInput,
             confirmPasswordInput;
     Button registerBtn;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,32 +25,37 @@ public class CreateAccountActivity extends AppCompatActivity {
         // Vinculando os campos de entrada
         fullNameInput = findViewById(R.id.fullNameInput);
         birthInput = findViewById(R.id.birthInput);
-        cepInput = findViewById(R.id.cepInput);
         sexInput = findViewById(R.id.sexInput);
+
+        cepInput = findViewById(R.id.cepInput);
         addressInput = findViewById(R.id.addressInput);
         numInput = findViewById(R.id.numInput);
-        complementoInput = findViewById(R.id.complementoInput);
-        bairroInput = findViewById(R.id.bairroInput);
-        cidadeInput = findViewById(R.id.cidadeInput);
-        estadoInput = findViewById(R.id.estadoInput);
-        telefoneInput = findViewById(R.id.telefoneInput);
+        complInput = findViewById(R.id.complInput);
+        distInput = findViewById(R.id.distInput);
+        cityInput = findViewById(R.id.cityInput);
+        stateInput = findViewById(R.id.stateInput);
+
+        telInput = findViewById(R.id.telInput);
         emailInput = findViewById(R.id.emailInput);
         passwordInput = findViewById(R.id.passwordInput);
         confirmPasswordInput = findViewById(R.id.confirmPasswordInput);
+
         registerBtn = findViewById(R.id.registerBtn);
 
         registerBtn.setOnClickListener(v -> {
             String fullName = fullNameInput.getText().toString();
-            String dob = dobInput.getText().toString();
+            String birth = birthInput.getText().toString();
+            String sex = sexInput.getText().toString();
+
             String cep = cepInput.getText().toString();
-            String sexo = sexoInput.getText().toString();
-            String endereco = enderecoInput.getText().toString();
-            String numero = numeroInput.getText().toString();
-            String complemento = complementoInput.getText().toString();
-            String bairro = bairroInput.getText().toString();
-            String cidade = cidadeInput.getText().toString();
-            String estado = estadoInput.getText().toString();
-            String telefone = telefoneInput.getText().toString();
+            String address = addressInput.getText().toString();
+            String num = numInput.getText().toString();
+            String complement = complInput.getText().toString();
+            String district = distInput.getText().toString();
+            String city = cityInput.getText().toString();
+            String state = stateInput.getText().toString();
+
+            String tel = telInput.getText().toString();
             String email = emailInput.getText().toString();
             String password = passwordInput.getText().toString();
             String confirmPassword = confirmPasswordInput.getText().toString();

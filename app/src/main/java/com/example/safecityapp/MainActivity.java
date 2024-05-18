@@ -39,14 +39,25 @@ public class MainActivity extends AppCompatActivity {
         createAccBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                irParaMapa();
+                Intent createAccountIntent = new Intent(MainActivity.this, CreateAccountActivity.class);
+                startActivity(createAccountIntent);
             }
         });
+
+
+        // MAPA
+//        createAccBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                irParaMapa();
+//            }
+//        });
     }
 
-    private void irParaMapa() {
-        Intent googleMaps = new Intent(this, MapsActivity.class);
-        startActivity(googleMaps);
-    }
+    // MAPA
+//    private void irParaMapa() {
+//        Intent googleMaps = new Intent(this, MapsActivity.class);
+//        startActivity(googleMaps);
+//    }
 
 }
