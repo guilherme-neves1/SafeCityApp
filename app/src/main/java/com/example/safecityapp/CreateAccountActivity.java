@@ -71,13 +71,6 @@ public class CreateAccountActivity extends AppCompatActivity {
             String password = passwordInput.getText().toString();
             String confirmPassword = confirmPasswordInput.getText().toString();
 
-            if (state.equals("Selecione o Estado")) {
-                // Informe ao usuário para selecionar um estado válido
-                Toast.makeText(CreateAccountActivity.this, "Por favor, selecione um estado válido.", Toast.LENGTH_SHORT).show();
-            } else {
-                // Continue com a lógica para criar a conta
-            }
-
             if (password.equals(confirmPassword)) {
                 // Lógica para registrar o usuário
                 Toast.makeText(CreateAccountActivity.this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
