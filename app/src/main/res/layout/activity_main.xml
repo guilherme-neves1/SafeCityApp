@@ -1,4 +1,4 @@
-<?xml  version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -22,7 +22,7 @@
             android:textColor="#E2725B"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:layout_marginBottom="12dp"/>
+            android:layout_marginBottom="24sp"/>
 
         <com.google.android.material.imageview.ShapeableImageView
             android:layout_width="160dp"
@@ -32,13 +32,12 @@
             app:strokeWidth="1dp"
             app:strokeColor="#E2725B"
             android:src="@drawable/logo"
-            />
+            android:layout_marginBottom="32dp"/>
 
         <EditText
             android:id="@+id/emailInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
             android:hint="Email"
             android:textColorHint="#A8A8A8"
             android:textSize="18sp"
@@ -49,12 +48,12 @@
             android:focusable="true"
             android:clickable="true"
             android:cursorVisible="true"
-            />
+            android:layout_marginBottom="16dp"/>
 
         <EditText
+            android:id="@+id/passwordInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:hint="Senha"
             android:textColorHint="#A8A8A8"
             android:textSize="18sp"
@@ -62,8 +61,7 @@
             android:backgroundTint="#404040"
             android:padding="18dp"
             android:inputType="textPassword"
-            android:id="@+id/passwordInput"
-            />
+            android:layout_marginBottom="16dp"/>
 
         <Button
             android:id="@+id/loginBtn"
@@ -73,7 +71,7 @@
             android:backgroundTint="#E2725B"
             android:textColor="#FFF"
             android:padding="8dp"
-            android:layout_marginTop="6dp"
+            android:layout_marginBottom="20dp"
             android:textSize="18sp"
             app:strokeWidth="2dp"
             app:strokeColor="#D5543A"
@@ -87,14 +85,13 @@
             android:textColor="#ffffff"
             android:textStyle="bold"
             android:padding="2dp"
-            android:layout_marginTop="20dp"
-            />
+            android:layout_marginBottom="70dp"
+            android:gravity="center"/>
 
         <Button
             android:id="@+id/createAccBtn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="70dp"
             android:padding="8dp"
             android:text="Criar nova conta"
             android:textSize="18sp"
@@ -102,16 +99,19 @@
             android:textColor="#FFF"
             app:strokeWidth="2dp"
             app:strokeColor="#D5543A"
+            android:layout_marginBottom="16dp"
             />
-        
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Todos os direitos reservados ©"
-            android:textColor="#DAD2D2"
-            android:textSize="14sp"
-            android:layout_marginTop="10dp"/>
 
     </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Todos os direitos reservados ©"
+        android:textColor="#DAD2D2"
+        android:textSize="14sp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"/>
 
 </RelativeLayout>
