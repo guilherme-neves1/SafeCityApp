@@ -2,8 +2,10 @@ package com.example.safecityapp;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,9 +13,12 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     EditText fullNameInput, birthInput, cepInput, sexInput,
             addressInput, numInput, complInput,
-            distInput, cityInput, stateInput,
-            telInput, emailInput, passwordInput,
+            distInput, cityInput, telInput,
+            emailInput, passwordInput,
             confirmPasswordInput;
+
+    Spinner stateSpinner;
+
     Button registerBtn;
 
     @SuppressLint("MissingInflatedId")
@@ -33,7 +38,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         complInput = findViewById(R.id.complInput);
         distInput = findViewById(R.id.distInput);
         cityInput = findViewById(R.id.cityInput);
-        stateInput = findViewById(R.id.stateInput);
+        stateSpinner = findViewById(R.id.stateSpinner);
 
         telInput = findViewById(R.id.telInput);
         emailInput = findViewById(R.id.emailInput);
@@ -41,6 +46,12 @@ public class CreateAccountActivity extends AppCompatActivity {
         confirmPasswordInput = findViewById(R.id.confirmPasswordInput);
 
         registerBtn = findViewById(R.id.registerBtn);
+
+        // Configurando o Spinner de estados
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.states_brazil, android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        stateSpinner.setAdapter(adapter);
 
         registerBtn.setOnClickListener(v -> {
             String fullName = fullNameInput.getText().toString();
@@ -53,7 +64,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             String complement = complInput.getText().toString();
             String district = distInput.getText().toString();
             String city = cityInput.getText().toString();
-            String state = stateInput.getText().toString();
+            String state = stateSpinner.getSelectedItem().toString();
 
             String tel = telInput.getText().toString();
             String email = emailInput.getText().toString();

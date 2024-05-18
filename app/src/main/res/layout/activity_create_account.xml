@@ -152,8 +152,8 @@
             android:padding="18dp"/>
 
 
-        <EditText
-            android:id="@+id/stateInput"
+        <Spinner
+            android:id="@+id/stateSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Estado"
@@ -171,7 +171,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Telefone"
-            android:layout_below="@id/stateInput"
+            android:layout_below="@id/stateSpinner"
             android:layout_marginTop="24dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white"
