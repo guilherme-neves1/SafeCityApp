@@ -49,7 +49,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         // Configurando o Spinner de estados
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-                R.array.states_brazil, android.R.layout.simple_spinner_item);
+                R.array.states_brazil, R.layout.spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         stateSpinner.setAdapter(adapter);
 
@@ -70,6 +70,13 @@ public class CreateAccountActivity extends AppCompatActivity {
             String email = emailInput.getText().toString();
             String password = passwordInput.getText().toString();
             String confirmPassword = confirmPasswordInput.getText().toString();
+
+            if (state.equals("Selecione o Estado")) {
+                // Informe ao usuário para selecionar um estado válido
+                Toast.makeText(CreateAccountActivity.this, "Por favor, selecione um estado válido.", Toast.LENGTH_SHORT).show();
+            } else {
+                // Continue com a lógica para criar a conta
+            }
 
             if (password.equals(confirmPassword)) {
                 // Lógica para registrar o usuário

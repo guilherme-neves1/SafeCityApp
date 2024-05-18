@@ -2,7 +2,7 @@
     <string name="app_name">SafeCityApp</string>
 
     <string-array name="states_brazil">
-        <item>Estado</item>
+        <item>Selecione o Estado</item>
         <item>Acre</item>
         <item>Alagoas</item>
         <item>Amapá</item>
