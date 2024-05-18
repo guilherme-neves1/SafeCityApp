@@ -32,4 +32,11 @@
         <item>Tocantins</item>
     </string-array>
 
+    <string-array name="sex_options">
+        <item>Sexo</item>
+        <item>Masculino</item>
+        <item>Feminino</item>
+        <item>Prefiro não dizer</item>
+    </string-array>
+
 </resources>

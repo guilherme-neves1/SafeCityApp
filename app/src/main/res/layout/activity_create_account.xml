@@ -24,12 +24,15 @@
             android:id="@+id/fullNameInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nome Completo"
-            android:textColorHint="#A8A8A8"
             android:layout_below="@id/titleText"
             android:layout_marginTop="24dp"
-            android:backgroundTint="#404040"
+
+            android:hint="Nome Completo"
             android:textSize="18sp"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
+            android:backgroundTint="#404040"
+
             android:background="@drawable/rounded_corner"
             android:padding="18dp"
             />
@@ -38,73 +41,91 @@
             android:id="@+id/birthInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Data de Nascimento"
-            android:textColorHint="#A8A8A8"
             android:layout_below="@id/fullNameInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
-            android:backgroundTint="#404040"
-            android:padding="18dp"
-            android:inputType="date"/>
 
-        <EditText
-            android:id="@+id/sexInput"
+            android:hint="Data de Nascimento"
+            android:textSize="18sp"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
+            android:backgroundTint="#404040"
+
+            android:background="@drawable/rounded_corner"
+            android:padding="18dp"
+            android:inputType="date"
+            android:focusable="false"
+            android:clickable="true"
+            />
+
+        <Spinner
+            android:id="@+id/sexSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Sexo"
             android:layout_below="@+id/birthInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Sexo"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColorHint="#A8A8A8"
+            android:textColor="#A8A8A8"
             android:backgroundTint="#404040"
-            android:padding="18dp"/>
+
+            android:background="@drawable/rounded_corner"
+            android:padding="18dp"
+            android:spinnerMode="dropdown"
+            android:popupBackground="@color/white"
+            />
 
         <EditText
             android:id="@+id/cepInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="CEP"
-            android:layout_below="@+id/sexInput"
+            android:layout_below="@+id/sexSpinner"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="CEP"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
+
+            android:background="@drawable/rounded_corner"
             android:padding="18dp"
-            android:inputType="number"/>
+            android:inputType="textPostalAddress"
+            android:maxLength="8"/>
 
 
         <EditText
             android:id="@+id/addressInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Endereço"
             android:layout_below="@id/cepInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Endereço"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
-            android:padding="18dp"/>
+
+            android:background="@drawable/rounded_corner"
+            android:padding="18dp"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/numInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Número"
             android:layout_below="@id/addressInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Número"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
+
+            android:background="@drawable/rounded_corner"
             android:padding="18dp"
             android:inputType="number"/>
 
@@ -112,43 +133,53 @@
             android:id="@+id/complInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Complemento"
             android:layout_below="@id/numInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Complemento"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
-            android:padding="18dp"/>
+
+            android:background="@drawable/rounded_corner"
+            android:padding="18dp"
+            android:inputType="text"
+            />
 
         <EditText
             android:id="@+id/distInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Bairro"
             android:layout_below="@id/complInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Bairro"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
-            android:padding="18dp"/>
+
+            android:background="@drawable/rounded_corner"
+            android:padding="18dp"
+            android:inputType="text"/>
 
         <EditText
             android:id="@+id/cityInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Cidade"
             android:layout_below="@+id/distInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Cidade"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
-            android:padding="18dp"/>
+
+            android:background="@drawable/rounded_corner"
+            android:padding="18dp"
+            android:inputType="text"/>
 
 
         <Spinner
@@ -157,24 +188,28 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/cityInput"
             android:layout_marginTop="24dp"
+            android:textColorHint="#A8A8A8"
             android:textColor="#A8A8A8"
             android:textSize="18sp"
             android:background="@drawable/rounded_corner"
             android:backgroundTint="#404040"
-            android:padding="18dp"/>
+            android:padding="18dp"
+            android:spinnerMode="dropdown"/>
 
         <EditText
             android:id="@+id/telInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Telefone"
             android:layout_below="@id/stateSpinner"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Telefone"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
+
+            android:background="@drawable/rounded_corner"
             android:padding="18dp"
             android:inputType="phone"/>
 
@@ -182,14 +217,16 @@
             android:id="@+id/emailInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Email"
             android:layout_below="@id/telInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Email"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
+
+            android:background="@drawable/rounded_corner"
             android:padding="18dp"
             android:inputType="textEmailAddress"/>
 
@@ -197,30 +234,34 @@
             android:id="@+id/passwordInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Senha"
             android:inputType="textPassword"
             android:layout_below="@id/emailInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Senha"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
+
+            android:background="@drawable/rounded_corner"
             android:padding="18dp"/>
 
         <EditText
             android:id="@+id/confirmPasswordInput"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Confirme sua senha"
             android:inputType="textPassword"
             android:layout_below="@id/passwordInput"
             android:layout_marginTop="24dp"
-            android:textColor="@color/white"
-            android:textColorHint="#A8A8A8"
+
+            android:hint="Confirme sua senha"
             android:textSize="18sp"
-            android:background="@drawable/rounded_corner"
+            android:textColor="#FFF"
+            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
+
+            android:background="@drawable/rounded_corner"
             android:padding="18dp"/>
 
         <Button
