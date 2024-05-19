@@ -2,14 +2,17 @@ package com.example.safecityapp;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 
+import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +21,7 @@ import com.example.safecityapp.service.RetrofitClient;
 import com.example.safecityapp.service.ViaCepService;
 
 import java.util.Calendar;
+import java.util.HashMap;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -34,6 +38,8 @@ public class CreateAccountActivity extends AppCompatActivity {
     Spinner stateSpinner, sexSpinner;
 
     Button registerBtn;
+
+    private HashMap<String, String> ufMap;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -60,6 +66,36 @@ public class CreateAccountActivity extends AppCompatActivity {
         confirmPasswordInput = findViewById(R.id.confirmPasswordInput);
 
         registerBtn = findViewById(R.id.registerBtn);
+
+        // Inicializando o mapeamento UF -> Nome completo
+        ufMap = new HashMap<>();
+        ufMap.put("AC", "Acre");
+        ufMap.put("AL", "Alagoas");
+        ufMap.put("AP", "Amapá");
+        ufMap.put("AM", "Amazonas");
+        ufMap.put("BA", "Bahia");
+        ufMap.put("CE", "Ceará");
+        ufMap.put("DF", "Distrito Federal");
+        ufMap.put("ES", "Espírito Santo");
+        ufMap.put("GO", "Goiás");
+        ufMap.put("MA", "Maranhão");
+        ufMap.put("MT", "Mato Grosso");
+        ufMap.put("MS", "Mato Grosso do Sul");
+        ufMap.put("MG", "Minas Gerais");
+        ufMap.put("PA", "Pará");
+        ufMap.put("PB", "Paraíba");
+        ufMap.put("PR", "Paraná");
+        ufMap.put("PE", "Pernambuco");
+        ufMap.put("PI", "Piauí");
+        ufMap.put("RJ", "Rio de Janeiro");
+        ufMap.put("RN", "Rio Grande do Norte");
+        ufMap.put("RS", "Rio Grande do Sul");
+        ufMap.put("RO", "Rondônia");
+        ufMap.put("RR", "Roraima");
+        ufMap.put("SC", "Santa Catarina");
+        ufMap.put("SP", "São Paulo");
+        ufMap.put("SE", "Sergipe");
+        ufMap.put("TO", "Tocantins");
 
         // Configurando o Spinner de estados
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
@@ -141,18 +177,37 @@ public class CreateAccountActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<CepResponse> call, Response<CepResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
-                    addressInput.setText(response.body().getLogradouro());
-                    distInput.setText(response.body().getBairro());
-                    cityInput.setText(response.body().getLocalidade());
-                    // Aqui você pode querer preencher o Spinner de estado
-                    String uf = response.body().getUf();
-                    ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(CreateAccountActivity.this,
-                            R.array.states_brazil, R.layout.spinner_item);
-                    stateSpinner.setAdapter(adapter);
+                    CepResponse cepResponse = response.body();
+                    addressInput.setText(cepResponse.getLogradouro());
+                    distInput.setText(cepResponse.getBairro());
+                    cityInput.setText(cepResponse.getLocalidade());
+
+                    // Atualizando o Spinner de estado
+                    String uf = cepResponse.getUf();
                     if (uf != null) {
-                        int spinnerPosition = adapter.getPosition(uf);
-                        stateSpinner.setSelection(spinnerPosition);
+                        String stateName = ufMap.get(uf);
+                        if (stateName != null) {
+                            ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) stateSpinner.getAdapter();
+                            int spinnerPosition = adapter.getPosition(stateName);
+                            if (spinnerPosition >= 0) {
+                                stateSpinner.setSelection(spinnerPosition);
+                            }
+                        }
                     }
+
+                    // Tornar os campos não editáveis
+                    distInput.setEnabled(false);
+                    cityInput.setEnabled(false);
+                    stateSpinner.setEnabled(false);
+
+//                    // Mudar a cor do texto para #A8A8A8
+//                    distInput.setTextColor(Color.parseColor("#A8A8A8"));
+//                    cityInput.setTextColor(Color.parseColor("#A8A8A8"));
+//
+//                    // Para mudar a cor do texto no Spinner, precisamos customizar o Spinner
+//                    ((TextView) stateSpinner.getSelectedView()).setTextColor(Color.parseColor("#A8A8A8"));
+
+
                 } else {
                     Toast.makeText(CreateAccountActivity.this, "CEP não encontrado.", Toast.LENGTH_SHORT).show();
                 }
