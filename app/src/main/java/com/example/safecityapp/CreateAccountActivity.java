@@ -2,10 +2,16 @@ package com.example.safecityapp;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
+import android.graphics.Color;
+import android.content.res.ColorStateList;
 
 import android.util.Log;
 import android.widget.ArrayAdapter;
@@ -22,6 +28,7 @@ import com.example.safecityapp.service.ViaCepService;
 
 import java.util.Calendar;
 import java.util.HashMap;
+
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -148,7 +155,9 @@ public class CreateAccountActivity extends AppCompatActivity {
             String confirmPassword = confirmPasswordInput.getText().toString();
 
             // Verificar se todos os campos obrigatórios estão preenchidos
-            if (fullName.isEmpty() || birth.isEmpty() || cep.isEmpty() || address.isEmpty() || city.isEmpty() || tel.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+            if (fullName.isEmpty() || birth.isEmpty() || sex.isEmpty() || cep.isEmpty() || address.isEmpty() || district.isEmpty()  || city.isEmpty() || state.isEmpty() || tel.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                // Destacar os campos não preenchidos
+                highlightEmptyFields();
                 Toast.makeText(CreateAccountActivity.this, "Todos os campos com * devem ser preenchidos.", Toast.LENGTH_SHORT).show();
                 return;
             }
@@ -167,6 +176,33 @@ public class CreateAccountActivity extends AppCompatActivity {
                 Toast.makeText(CreateAccountActivity.this, "As senhas não coincidem!", Toast.LENGTH_SHORT).show();
             }
         });
+
+        // Limpar o destaque vermelho quando o usuário começar a preencher um campo
+        TextWatcher clearErrorWatcher = new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                clearErrors();
+            }
+        };
+
+        // Adicionando TextWatcher a todos os campos
+        fullNameInput.addTextChangedListener(clearErrorWatcher);
+        birthInput.addTextChangedListener(clearErrorWatcher);
+        cepInput.addTextChangedListener(clearErrorWatcher);
+        addressInput.addTextChangedListener(clearErrorWatcher);
+        distInput.addTextChangedListener(clearErrorWatcher);
+        cityInput.addTextChangedListener(clearErrorWatcher);
+        telInput.addTextChangedListener(clearErrorWatcher);
+        emailInput.addTextChangedListener(clearErrorWatcher);
+        passwordInput.addTextChangedListener(clearErrorWatcher);
+        confirmPasswordInput.addTextChangedListener(clearErrorWatcher);
+
 
         emailInput.addTextChangedListener(new TextWatcher() {
             @Override
@@ -217,6 +253,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
     }
 
+
     // Data de Nascimento - Calendário
     private void showDatePickerDialog() {
         final Calendar calendar = Calendar.getInstance();
@@ -264,14 +301,6 @@ public class CreateAccountActivity extends AppCompatActivity {
                     cityInput.setEnabled(false);
                     stateSpinner.setEnabled(false);
 
-//                    // Mudar a cor do texto para #A8A8A8
-//                    distInput.setTextColor(Color.parseColor("#A8A8A8"));
-//                    cityInput.setTextColor(Color.parseColor("#A8A8A8"));
-//
-//                    // Para mudar a cor do texto no Spinner, precisamos customizar o Spinner
-//                    ((TextView) stateSpinner.getSelectedView()).setTextColor(Color.parseColor("#A8A8A8"));
-
-
                 } else {
                     Toast.makeText(CreateAccountActivity.this, "CEP não encontrado.", Toast.LENGTH_SHORT).show();
                 }
@@ -282,6 +311,90 @@ public class CreateAccountActivity extends AppCompatActivity {
                 Toast.makeText(CreateAccountActivity.this, "Erro ao buscar CEP.", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    // Métodos para destacar campos vazios em vermelho e limpar erros
+    private void highlightEmptyFields() {
+        if (fullNameInput.getText().toString().isEmpty()) {
+            TextInputLayout fullNameInputLayout = findViewById(R.id.fullNameInputLayout);
+            fullNameInputLayout.setBoxStrokeColor(Color.RED);
+            fullNameInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            fullNameInput.setError("Campo obrigatório");
+        }
+        if (birthInput.getText().toString().isEmpty()) {
+            TextInputLayout birthInputLayout = findViewById(R.id.birthInputLayout);
+            birthInputLayout.setBoxStrokeColor(Color.RED);
+            birthInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            birthInput.setError("Campo obrigatório");
+        }
+        if (cepInput.getText().toString().isEmpty()) {
+            TextInputLayout cepInputLayout = findViewById(R.id.cepInputLayout);
+            cepInputLayout.setBoxStrokeColor(Color.RED);
+            cepInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            cepInput.setError("Campo obrigatório");
+        }
+        if (addressInput.getText().toString().isEmpty()) {
+            TextInputLayout addressInputLayout = findViewById(R.id.addressInputLayout);
+            addressInputLayout.setBoxStrokeColor(Color.RED);
+            addressInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            addressInput.setError("Campo obrigatório");
+        }
+        if (distInput.getText().toString().isEmpty()) {
+            TextInputLayout distInputLayout = findViewById(R.id.distInputLayout);
+            distInputLayout.setBoxStrokeColor(Color.RED);
+            distInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            distInput.setError("Campo obrigatório");
+        }
+        if (cityInput.getText().toString().isEmpty()) {
+            TextInputLayout cityInputLayout = findViewById(R.id.cityInputLayout);
+            cityInputLayout.setBoxStrokeColor(Color.RED);
+            cityInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            cityInput.setError("Campo obrigatório");
+        }
+        if (telInput.getText().toString().isEmpty()) {
+            TextInputLayout telInputLayout = findViewById(R.id.telInputLayout);
+            telInputLayout.setBoxStrokeColor(Color.RED);
+            telInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            telInput.setError("Campo obrigatório");
+        }
+        if (emailInput.getText().toString().isEmpty()) {
+            TextInputLayout emailInputLayout = findViewById(R.id.emailInputLayout);
+            emailInputLayout.setBoxStrokeColor(Color.RED);
+            emailInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            emailInput.setError("Campo obrigatório");
+        }
+        if (passwordInput.getText().toString().isEmpty()) {
+            TextInputLayout passwordInputLayout = findViewById(R.id.passwordInputLayout);
+            passwordInputLayout.setBoxStrokeColor(Color.RED);
+            passwordInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            passwordInput.setError("Campo obrigatório");
+        }
+        if (confirmPasswordInput.getText().toString().isEmpty()) {
+            TextInputLayout confirmPasswordInputLayout = findViewById(R.id.confirmPasswordInputLayout);
+            confirmPasswordInputLayout.setBoxStrokeColor(Color.RED);
+            confirmPasswordInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
+            confirmPasswordInput.setError("Campo obrigatório");
+        }
+    }
+
+    private void clearErrors() {
+        clearFieldError((TextInputEditText) fullNameInput, R.id.fullNameInputLayout);
+        clearFieldError((TextInputEditText) birthInput, R.id.birthInputLayout);
+        clearFieldError((TextInputEditText) cepInput, R.id.cepInputLayout);
+        clearFieldError((TextInputEditText) addressInput, R.id.addressInputLayout);
+        clearFieldError((TextInputEditText) distInput, R.id.distInputLayout);
+        clearFieldError((TextInputEditText) cityInput, R.id.cityInputLayout);
+        clearFieldError((TextInputEditText) telInput, R.id.telInputLayout);
+        clearFieldError((TextInputEditText) emailInput, R.id.emailInputLayout);
+        clearFieldError((TextInputEditText) passwordInput, R.id.passwordInputLayout);
+        clearFieldError((TextInputEditText) confirmPasswordInput, R.id.confirmPasswordInputLayout);
+    }
+
+    private void clearFieldError(TextInputEditText field, int layoutId) {
+        TextInputLayout fieldLayout = findViewById(layoutId);
+        fieldLayout.setBoxStrokeColor(Color.parseColor("#404040"));
+        fieldLayout.setHintTextColor(ColorStateList.valueOf(Color.BLACK));
+        field.setError(null);
     }
 
 }
