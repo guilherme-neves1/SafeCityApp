@@ -27,6 +27,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/titleText"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -50,6 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/fullNameInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             android:backgroundTint="#404040"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
@@ -77,11 +79,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/birthInputLayout"
             android:layout_marginTop="24dp"
+            android:textColor="#000000"
+            android:textColorHint="#000000"
             android:textSize="18sp"
             android:background="@drawable/rounded_corner"
             android:padding="18dp"
             android:spinnerMode="dropdown"
-            android:popupBackground="@color/white"/>
+            android:popupBackground="@color/black"
+            />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/cepInputLayout"
@@ -89,6 +94,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/sexSpinner"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -114,6 +120,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/cepInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -138,6 +145,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/addressInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -162,6 +170,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/numInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -186,6 +195,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/complInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -211,6 +221,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/distInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -236,12 +247,14 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/cityInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             android:textSize="18sp"
             android:background="@drawable/rounded_corner"
             android:padding="18dp"
             android:spinnerMode="dropdown"
-            android:popupBackground="@color/white"
-            android:enabled="false"/>
+            android:popupBackground="@color/black"
+            android:enabled="false"
+            />
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/telInputLayout"
@@ -249,6 +262,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/stateSpinner"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -273,6 +287,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/telInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -297,6 +312,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/emailInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -321,6 +337,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/passwordInputLayout"
             android:layout_marginTop="24dp"
+            android:textColorHint="#000000"
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
@@ -349,6 +366,10 @@
             android:textColor="#FFF"
             android:padding="8dp"
             android:layout_marginTop="40dp"
-            android:textSize="18sp"/>
+            android:textSize="18sp"
+            app:strokeWidth="2dp"
+            app:strokeColor="#D5543A"
+            />
+
     </RelativeLayout>
 </ScrollView>

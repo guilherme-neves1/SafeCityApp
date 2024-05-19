@@ -10,12 +10,15 @@ import android.util.Log;
 import com.google.android.material.textfield.TextInputLayout;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     Button loginBtn, createAccBtn;
     EditText loginEmailInput, loginPasswordInput;
     TextInputLayout loginEmailInputLayout, loginPasswordInputLayout;
+    TextView forgotPasswordText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
         loginBtn = findViewById(R.id.loginBtn);
         createAccBtn = findViewById(R.id.createAccBtn);
+        forgotPasswordText = findViewById(R.id.forgotPasswordText);
 
         loginEmailInput.addTextChangedListener(new TextWatcher() {
             @Override
