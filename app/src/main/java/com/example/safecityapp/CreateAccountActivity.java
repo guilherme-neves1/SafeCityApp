@@ -157,6 +157,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
     }
 
+    // Data de Nascimento - Calendário
     private void showDatePickerDialog() {
         final Calendar calendar = Calendar.getInstance();
         int year = calendar.get(Calendar.YEAR);
@@ -164,7 +165,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         int day = calendar.get(Calendar.DAY_OF_MONTH);
 
         DatePickerDialog datePickerDialog = new DatePickerDialog(this,
-                (view, year1, month1, dayOfMonth) -> birthInput.setText(dayOfMonth + "/" + (month1 + 1) + "/" + year1),
+                (view, year1, month1, dayOfMonth) -> {
+                    String formattedDate = String.format("%02d/%02d/%04d", dayOfMonth, month1 + 1, year1);
+                    birthInput.setText(formattedDate);
+                },
                 year, month, day);
         datePickerDialog.show();
     }
