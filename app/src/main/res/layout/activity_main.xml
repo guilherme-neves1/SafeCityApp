@@ -42,7 +42,9 @@
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
-            app:hintTextColor="@color/black">
+            app:hintTextColor="@color/black"
+            app:cursorColor="@color/black"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/loginEmailInput"
@@ -63,7 +65,9 @@
             app:hintEnabled="true"
             app:hintTextAppearance="@style/HintTextStyle"
             app:boxStrokeColor="@android:color/black"
-            app:hintTextColor="@color/black">
+            app:hintTextColor="@color/black"
+            app:cursorColor="@color/black"
+            >
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/loginPasswordInput"
