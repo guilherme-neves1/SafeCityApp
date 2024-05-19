@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -7,7 +8,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        android:background="@drawable/login_background">
+        android:background="@drawable/create_acc_background">
 
         <TextView
             android:id="@+id/titleText"
@@ -20,261 +21,291 @@
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="24dp"/>
 
-        <EditText
-            android:id="@+id/fullNameInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/fullNameInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/titleText"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Nome Completo"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/fullNameInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* Nome Completo"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            />
-
-        <EditText
-            android:id="@+id/birthInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/birthInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/fullNameInput"
+            android:layout_below="@id/fullNameInputLayout"
             android:layout_marginTop="24dp"
-
-            android:hint="Data de Nascimento"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
             android:backgroundTint="#404040"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="date"
-            android:focusable="false"
-            android:clickable="true"
-            />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/birthInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* Data de Nascimento"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="date"
+                android:focusable="false"
+                android:clickable="true"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
             android:id="@+id/sexSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/birthInput"
+            android:layout_below="@id/birthInputLayout"
             android:layout_marginTop="24dp"
-
             android:textSize="18sp"
-            android:textColorHint="#FFF"
-            android:textColor="#FFF"
-            android:backgroundTint="#404040"
-
             android:background="@drawable/rounded_corner"
             android:padding="18dp"
             android:spinnerMode="dropdown"
-            android:popupBackground="@color/black"
-            />
+            android:popupBackground="@color/white"/>
 
-        <EditText
-            android:id="@+id/cepInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cepInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/sexSpinner"
+            android:layout_below="@id/sexSpinner"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="CEP"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cepInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* CEP"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="textPostalAddress"
+                android:maxLength="8"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="textPostalAddress"
-            android:maxLength="8"/>
-
-
-        <EditText
-            android:id="@+id/addressInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/addressInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/cepInput"
+            android:layout_below="@id/cepInputLayout"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Endereço"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/addressInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* Endereço"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="text"/>
-
-        <EditText
-            android:id="@+id/numInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/numInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/addressInput"
+            android:layout_below="@id/addressInputLayout"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Número"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/numInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Número"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="number"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="number"/>
-
-        <EditText
-            android:id="@+id/complInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/complInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/numInput"
+            android:layout_below="@id/numInputLayout"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Complemento"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/complInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Complemento"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="text"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="text"
-            />
-
-        <EditText
-            android:id="@+id/distInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/distInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/complInput"
+            android:layout_below="@id/complInputLayout"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Bairro"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/distInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* Bairro"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="text"
+                android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="text"
-            android:enabled="false"
-            />
-
-        <EditText
-            android:id="@+id/cityInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cityInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/distInput"
+            android:layout_below="@id/distInputLayout"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Cidade"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
-
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="text"
-            android:enabled="false"
-            />
-
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/cityInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* Cidade"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="text"
+                android:enabled="false"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Spinner
             android:id="@+id/stateSpinner"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/cityInput"
+            android:layout_below="@id/cityInputLayout"
             android:layout_marginTop="24dp"
-
             android:textSize="18sp"
-
             android:background="@drawable/rounded_corner"
             android:padding="18dp"
-            android:backgroundTint="#404040"
             android:spinnerMode="dropdown"
-            android:popupBackground="@color/black"
-            android:enabled="false"
-            />
+            android:popupBackground="@color/white"
+            android:enabled="false"/>
 
-        <EditText
-            android:id="@+id/telInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/telInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/stateSpinner"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Telefone"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/telInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* Telefone Celular"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="phone"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="phone"
-            android:maxLength="11"
-            />
-
-        <EditText
-            android:id="@+id/emailInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/telInput"
+            android:layout_below="@id/telInputLayout"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Email"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/emailInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* Email"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="textEmailAddress"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"
-            android:inputType="textEmailAddress"/>
-
-        <EditText
-            android:id="@+id/passwordInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/passwordInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:layout_below="@id/emailInput"
+            android:layout_below="@id/emailInputLayout"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Senha"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/passwordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* Senha"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"/>
-
-        <EditText
-            android:id="@+id/confirmPasswordInput"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/confirmPasswordInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="textPassword"
-            android:layout_below="@id/passwordInput"
+            android:layout_below="@id/passwordInputLayout"
             android:layout_marginTop="24dp"
+            app:hintEnabled="true"
+            app:hintTextAppearance="@style/HintTextStyle">
 
-            android:hint="Confirme sua senha"
-            android:textSize="18sp"
-            android:textColor="#FFF"
-            android:textColorHint="#A8A8A8"
-            android:backgroundTint="#404040"
-
-            android:background="@drawable/rounded_corner"
-            android:padding="18dp"/>
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/confirmPasswordInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="* Confirme sua senha"
+                android:textSize="18sp"
+                android:textColor="#000000"
+                android:textColorHint="#000000"
+                android:padding="18dp"
+                android:inputType="textPassword"/>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Button
             android:id="@+id/registerBtn"
-            android:layout_below="@id/confirmPasswordInput"
+            android:layout_below="@id/confirmPasswordInputLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Registrar"
@@ -282,8 +313,6 @@
             android:textColor="#FFF"
             android:padding="8dp"
             android:layout_marginTop="40dp"
-            android:textSize="18sp"
-            />
-
+            android:textSize="18sp"/>
     </RelativeLayout>
 </ScrollView>

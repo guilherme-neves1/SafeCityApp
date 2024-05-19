@@ -2,7 +2,7 @@
     <string name="app_name">SafeCityApp</string>
 
     <string-array name="states_brazil">
-        <item>Selecione o Estado</item>
+        <item>* Selecione o Estado</item>
         <item>Acre</item>
         <item>Alagoas</item>
         <item>Amapá</item>
@@ -33,7 +33,7 @@
     </string-array>
 
     <string-array name="sex_options">
-        <item>Sexo</item>
+        <item>* Sexo</item>
         <item>Masculino</item>
         <item>Feminino</item>
         <item>Prefiro não dizer</item>

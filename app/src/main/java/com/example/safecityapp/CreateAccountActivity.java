@@ -147,12 +147,72 @@ public class CreateAccountActivity extends AppCompatActivity {
             String password = passwordInput.getText().toString();
             String confirmPassword = confirmPasswordInput.getText().toString();
 
+            // Verificar se todos os campos obrigatórios estão preenchidos
+            if (fullName.isEmpty() || birth.isEmpty() || cep.isEmpty() || address.isEmpty() || city.isEmpty() || tel.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
+                Toast.makeText(CreateAccountActivity.this, "Todos os campos com * devem ser preenchidos.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
+            // Verificar se a senha tem pelo menos 6 caracteres
+            if (password.length() < 6) {
+                Toast.makeText(CreateAccountActivity.this, "A senha deve ter pelo menos 6 caracteres.", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
             if (password.equals(confirmPassword)) {
                 // Lógica para registrar o usuário
                 Toast.makeText(CreateAccountActivity.this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
                 // Pode adicionar aqui a lógica para salvar os dados do usuário ou enviar para o servidor
             } else {
                 Toast.makeText(CreateAccountActivity.this, "As senhas não coincidem!", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        emailInput.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!s.toString().contains("@")) {
+                    emailInput.setError("Email deve conter '@'");
+                }
+            }
+        });
+
+
+        // Formatação de Telefone
+        telInput.addTextChangedListener(new TextWatcher() {
+            private String current = "";
+            private final String phoneMask = "(##) #####-####";
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                if (!s.toString().equals(current)) {
+                    String cleanString = s.toString().replaceAll("[^\\d]", "");
+                    StringBuilder formatted = new StringBuilder();
+                    int i = 0;
+                    for (char m : phoneMask.toCharArray()) {
+                        if (m != '#' && i < cleanString.length()) {
+                            formatted.append(m);
+                        } else if (i < cleanString.length()) {
+                            formatted.append(cleanString.charAt(i));
+                            i++;
+                        }
+                    }
+                    current = formatted.toString();
+                    telInput.setText(current);
+                    telInput.setSelection(current.length());
+                }
             }
         });
     }
@@ -223,4 +283,5 @@ public class CreateAccountActivity extends AppCompatActivity {
             }
         });
     }
+
 }
