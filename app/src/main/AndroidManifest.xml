@@ -17,7 +17,11 @@
         android:theme="@style/Theme.SafeCityApp"
         tools:targetApi="31">
         <activity
+<<<<<<< HEAD
             android:name=".ForgotPasswordActivity"
+=======
+            android:name=".MenuApp"
+>>>>>>> 21feb0908ef52e9796e080cc733be3fb110196ab
             android:exported="false" />
         <activity
             android:name=".CreateAccountActivity"
