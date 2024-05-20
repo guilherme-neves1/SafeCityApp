@@ -19,13 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SafeCity"
-<<<<<<< HEAD
             android:textColor="#CEE2725B"
             android:textSize="35sp"
-=======
-            android:textColor="#CF4F34"
-            android:textSize="40sp"
->>>>>>> d95271a053c70da58d47e01b46899732010c2676
             android:textStyle="bold"
             android:layout_marginBottom="24sp"/>
 

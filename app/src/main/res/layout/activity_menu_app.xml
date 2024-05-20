@@ -40,7 +40,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/orange"
-        tools:srcCompat="@drawable/denuncia"
+        tools:srcCompat="@drawable/denun"
         android:layout_gravity="center"
         android:layout_margin="10dp"/>
 
@@ -49,7 +49,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Denúncia"
+        android:text="Inserir nova denúncia"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-black"
         android:textSize="15dp"/>
@@ -64,14 +64,14 @@
         android:layout_margin="10dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/orangetom1"
-        tools:srcCompat="@drawable/denuncia" />
+        tools:srcCompat="@drawable/ver" />
 
     <TextView
         android:id="@+id/textvisualizar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Visualizar denúncia"
+        android:text="Visualizar publicação"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-black"
         android:textSize="15dp"/>
@@ -83,7 +83,7 @@
         android:layout_height="50dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/orangetom2"
-        tools:srcCompat="@drawable/denuncia"
+        tools:srcCompat="@drawable/mapa"
         android:layout_gravity="center"
         android:layout_margin="10dp"/>
 
@@ -92,10 +92,54 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="Mapa"
+        android:text="Acessar Mapa"
         android:textColor="@color/white"
         android:fontFamily="sans-serif-black"
         android:textSize="15dp"/>
+
+    <!--Boletim-->
+
+    <ImageButton
+        android:id="@+id/MenuBoletim"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/orangetom3"
+        tools:srcCompat="@drawable/boletim" />
+
+    <TextView
+        android:id="@+id/textboletim"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:text="Delegacia Eletrônica - Boletim"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+    <!--Configuração-->
+
+    <ImageButton
+        android:id="@+id/MenuConfig"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/orangetom4"
+        tools:srcCompat="@drawable/config" />
+
+    <TextView
+        android:id="@+id/textconfig"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:text="Configuração"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
 
     <!--Ajuda-->
 
@@ -106,8 +150,8 @@
         android:layout_gravity="center"
         android:layout_margin="10dp"
         android:layout_marginTop="30dp"
-        android:backgroundTint="@color/orangetom3"
-        tools:srcCompat="@drawable/denuncia" />
+        android:backgroundTint="@color/orangetom5"
+        tools:srcCompat="@drawable/Ajuda" />
 
     <TextView
         android:id="@+id/textajuda"
@@ -118,6 +162,17 @@
         android:text="Ajuda"
         android:textColor="@color/white"
         android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:textSize="12dp"
+        android:layout_gravity="center"
+        android:text="Todos os direitos reservados ©"
+        android:textColor="#DAD2D2"
+        android:layout_marginTop="70dp"/>
 
 </LinearLayout>
 
