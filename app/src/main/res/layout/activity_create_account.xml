@@ -17,7 +17,7 @@
             android:text="Criar nova conta"
             android:textSize="40sp"
             android:textStyle="bold"
-            android:textColor="#E2725B"
+            android:textColor="#CF4F34"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="24dp"/>
 
@@ -28,7 +28,9 @@
             android:layout_below="@id/titleText"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/fullNameInput"
@@ -49,7 +51,9 @@
             android:layout_marginTop="24dp"
             android:backgroundTint="#404040"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/birthInput"
@@ -84,7 +88,9 @@
             android:layout_below="@id/sexSpinner"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/cepInput"
@@ -106,7 +112,9 @@
             android:layout_below="@id/cepInputLayout"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/addressInput"
@@ -127,7 +135,9 @@
             android:layout_below="@id/addressInputLayout"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/numInput"
@@ -135,8 +145,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Número"
                 android:textSize="18sp"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
                 android:padding="18dp"
                 android:inputType="number"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -148,7 +158,9 @@
             android:layout_below="@id/numInputLayout"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/complInput"
@@ -156,8 +168,8 @@
                 android:layout_height="wrap_content"
                 android:hint="Complemento"
                 android:textSize="18sp"
-                android:textColor="#000000"
-                android:textColorHint="#000000"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
                 android:padding="18dp"
                 android:inputType="text"/>
         </com.google.android.material.textfield.TextInputLayout>
@@ -169,7 +181,9 @@
             android:layout_below="@id/complInputLayout"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/distInput"
@@ -191,7 +205,9 @@
             android:layout_below="@id/distInputLayout"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/cityInput"
@@ -226,7 +242,9 @@
             android:layout_below="@id/stateSpinner"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/telInput"
@@ -247,7 +265,9 @@
             android:layout_below="@id/telInputLayout"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/emailInput"
@@ -268,7 +288,9 @@
             android:layout_below="@id/emailInputLayout"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/passwordInput"
@@ -289,7 +311,9 @@
             android:layout_below="@id/passwordInputLayout"
             android:layout_marginTop="24dp"
             app:hintEnabled="true"
-            app:hintTextAppearance="@style/HintTextStyle">
+            app:hintTextAppearance="@style/HintTextStyle"
+            app:boxStrokeColor="@android:color/black"
+            app:hintTextColor="@color/black">
 
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/confirmPasswordInput"
