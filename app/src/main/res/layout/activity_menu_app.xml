@@ -1,0 +1,123 @@
+<?xml  version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/login_background"
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:orientation="vertical">
+
+    <!-- Icone Menu   -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginRight="15dp"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:strokeColor="#FF5722"
+        android:layout_marginTop="5dp" />
+
+    <!--Usuario-->
+    <TextView
+        android:id="@+id/textMENUser"
+        android:layout_width="350dp"
+        android:layout_height="50dp"
+        android:fontFamily="sans-serif-black"
+        android:padding="10dp"
+        android:text="Usuário:"
+        android:textColor="@color/white"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"/>
+
+    <!--Denuncia-->
+    <ImageButton
+        android:id="@+id/MenuDenuncia"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/orange"
+        tools:srcCompat="@drawable/denuncia"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/textdenuncia"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Denúncia"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-black"
+        android:textSize="15dp"/>
+
+    <!--Visualizar Denuncia-->
+
+    <ImageButton
+        android:id="@+id/MenuVisualizar"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/orangetom1"
+        tools:srcCompat="@drawable/denuncia" />
+
+    <TextView
+        android:id="@+id/textvisualizar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Visualizar denúncia"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-black"
+        android:textSize="15dp"/>
+
+    <!--Mapa-->
+    <ImageButton
+        android:id="@+id/MenuMapa"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/orangetom2"
+        tools:srcCompat="@drawable/denuncia"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"/>
+
+    <TextView
+        android:id="@+id/textmapa"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Mapa"
+        android:textColor="@color/white"
+        android:fontFamily="sans-serif-black"
+        android:textSize="15dp"/>
+
+    <!--Ajuda-->
+
+    <ImageButton
+        android:id="@+id/MenuAjuda"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:layout_marginTop="30dp"
+        android:backgroundTint="@color/orangetom3"
+        tools:srcCompat="@drawable/denuncia" />
+
+    <TextView
+        android:id="@+id/textajuda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="sans-serif-black"
+        android:text="Ajuda"
+        android:textColor="@color/white"
+        android:textSize="15dp" />
+
+</LinearLayout>
+

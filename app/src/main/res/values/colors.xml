@@ -2,5 +2,9 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="orange">#D1B28A</color>
+    <color name="orangetom1">#C8A57D</color>
+    <color name="orangetom2">#BF976E</color>
+    <color name="orangetom3">#B6895E</color>
 
 </resources>

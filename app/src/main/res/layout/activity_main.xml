@@ -19,8 +19,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="SafeCity"
-            android:textColor="#E2725B"
-            android:textSize="40sp"
+            android:textColor="#CEE2725B"
+            android:textSize="35sp"
             android:textStyle="bold"
             android:layout_marginBottom="24sp"/>
 
@@ -30,7 +30,7 @@
             app:shapeAppearanceOverlay="@style/circular"
             android:padding="5dp"
             app:strokeWidth="1dp"
-            app:strokeColor="#E2725B"
+            app:strokeColor="#FEFEFE"
             android:src="@drawable/logo"
             android:layout_marginBottom="32dp"/>
 
@@ -82,7 +82,7 @@
             android:layout_marginBottom="20dp"
             android:textSize="18sp"
             app:strokeWidth="2dp"
-            app:strokeColor="#D5543A"
+            app:strokeColor="#FEFEFE"
             />
 
         <TextView
@@ -106,7 +106,7 @@
             android:backgroundTint="#E2725B"
             android:textColor="#FFF"
             app:strokeWidth="2dp"
-            app:strokeColor="#D5543A"
+            app:strokeColor="#FEFEFE"
             android:layout_marginBottom="8dp"
             />
 
