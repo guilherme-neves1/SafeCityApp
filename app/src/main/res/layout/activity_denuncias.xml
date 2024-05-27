@@ -1,56 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
-    android:gravity="center"
-    android:padding="16dp"
-    tools:context=".MainActivity">
+    android:layout_margin="5dp"
+    android:padding="5dp"
+    android:orientation="horizontal">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Todos os direitos reservados ©"
-        android:textColor="#DAD2D2"
-        android:textSize="14sp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="10dp"/>
+    <!-- Icone Menu   -->
+    <com.google.android.material.imageview.ShapeableImageView
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_marginRight="15dp"
+        android:src="@android:drawable/ic_menu_sort_by_size"
+        app:shapeAppearanceOverlay="@style/circular"
+        app:strokeColor="#FF5722"
+        android:layout_marginTop="5dp" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/camera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="120px"
+        android:layout_margin="50px"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/galeria"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="200px"
+        android:layout_margin="50px"
         app:srcCompat="@android:drawable/ic_menu_crop" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/visualizacao"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_margin="50px"
+        app:srcCompat="@android:drawable/ic_menu_view" />
+
+    <ImageView
+        android:id="@+id/lixo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="50px"
         app:srcCompat="@android:drawable/ic_menu_delete" />
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/mapa"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="400px"
+        android:layout_margin="50px"
         app:srcCompat="@android:drawable/ic_dialog_map" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_margin="300px"
-        app:srcCompat="@android:drawable/ic_menu_view" />
-
-</RelativeLayout>
+</LinearLayout>
