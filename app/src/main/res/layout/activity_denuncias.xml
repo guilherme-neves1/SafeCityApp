@@ -8,9 +8,8 @@
     android:background="@drawable/login_background"
     android:layout_margin="5dp"
     android:padding="5dp"
-    android:orientation="horizontal">
+    android:orientation="vertical">
 
-    <!-- Icone Menu   -->
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
@@ -19,6 +18,30 @@
         app:shapeAppearanceOverlay="@style/circular"
         app:strokeColor="#FF5722"
         android:layout_marginTop="5dp" />
+
+    <TextView
+        android:id="@+id/Denuncias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="25dp"
+        android:text="Digite sua denúncia:"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/txtDenuncia"
+        android:layout_width="380dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="30dp"
+        android:ems="200"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toEndOf="@+id/txtDenuncia"
+        app:layout_constraintTop_toBottomOf="@+id/txtdenuncia" />
 
     <ImageView
         android:id="@+id/camera"
@@ -54,5 +77,20 @@
         android:layout_height="wrap_content"
         android:layout_margin="50px"
         app:srcCompat="@android:drawable/ic_dialog_map" />
+
+    <Button
+        android:id="@+id/btEnviardenuncia"
+        android:layout_width="153dp"
+        android:layout_height="46dp"
+        android:layout_alignBaseline="@+id/Enviardenuncia"
+        android:layout_alignBottom="@+id/Enviardenuncia"
+        android:layout_marginStart="120dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="36dp"
+        android:layout_toRightOf="@+id/btConsultar"
+        android:text="Enviar denúncia"
+        android:backgroundTint="@color/orangetom1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btEnviardenuncia" />
 
 </LinearLayout>
