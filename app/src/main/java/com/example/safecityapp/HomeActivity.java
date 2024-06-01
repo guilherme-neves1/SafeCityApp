@@ -1,14 +1,12 @@
 package com.example.safecityapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends NavMenuActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        getLayoutInflater().inflate(R.layout.activity_home, findViewById(R.id.fragment_container));
     }
 }

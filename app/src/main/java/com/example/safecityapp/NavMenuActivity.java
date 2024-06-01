@@ -52,7 +52,8 @@ public class NavMenuActivity extends AppCompatActivity implements NavigationView
         } else if (id == R.id.nav_post) {
             // Implementar a navegação para a tela de post
         } else if (id == R.id.nav_home) {
-            // Implementar a navegação para a tela home
+            Intent homeIntent = new Intent(this, HomeActivity.class);
+            startActivity(homeIntent);
         } else if (id == R.id.nav_police) {
             // Implementar a navegação para a tela de boletim
         } else if (id == R.id.nav_settings) {

@@ -78,6 +78,10 @@ public class LoginActivity extends AppCompatActivity {
 
                 if (validateEmail(email) && validatePassword(password)) {
                     Log.i("Test Credentials", "Email: " + email + " and Password: " + password);
+
+                    // REDIRECIONAR P/ OUTRA TELA
+                    Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                    startActivity(homeIntent);
                 } else {
                     if (!validateEmail(email)) {
                         loginEmailInputLayout.setError("Email inválido");
