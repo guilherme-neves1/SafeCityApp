@@ -1,59 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn = "navigation_view">
+    tools:showIn="navigation_view">
 
-    <group
-        android:checkableBehavior="single">
+    <group android:checkableBehavior="single">
 
         <item
             android:id="@+id/nav_post"
             android:icon="@drawable/nav_post"
-            android:title="Nova denúncia"/>
+            android:title="Nova denúncia" />
 
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/nav_home"
-            android:title="Publicações"/>
+            android:title="Publicações" />
 
         <item
             android:id="@+id/nav_map"
             android:icon="@drawable/nav_map"
-            android:title="Acessar mapa"/>
+            android:title="Acessar mapa" />
 
         <item
             android:id="@+id/nav_police"
             android:icon="@drawable/nav_police"
-            android:title="Boletim"/>
+            android:title="Boletim" />
 
         <item
             android:id="@+id/nav_settings"
             android:icon="@drawable/nav_settings"
-            android:title="Configurações"/>
+            android:title="Configurações" />
 
         <item
             android:id="@+id/nav_help"
             android:icon="@drawable/nav_help"
-            android:title="Ajuda"/>
+            android:title="Ajuda" />
 
         <item
             android:id="@+id/nav_about"
             android:icon="@drawable/nav_about"
-            android:title="Sobre"/>
+            android:title="Sobre" />
 
     </group>
 
-    <item
-        android:title="">
-
+    <item android:title="">
         <menu>
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/nav_logout"
-                android:title="Sair da conta"/>
-
+                android:title="Sair da conta" />
         </menu>
-
     </item>
 
 </menu>
