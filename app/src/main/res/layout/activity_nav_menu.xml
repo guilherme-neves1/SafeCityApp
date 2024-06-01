@@ -42,6 +42,4 @@
         app:itemIconTint="@color/lavender"
         app:itemTextColor="@color/black"/>
 
-
-
 </androidx.drawerlayout.widget.DrawerLayout>
