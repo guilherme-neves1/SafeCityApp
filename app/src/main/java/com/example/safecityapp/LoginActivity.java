@@ -19,11 +19,10 @@ public class LoginActivity extends AppCompatActivity {
     TextInputLayout loginEmailInputLayout, loginPasswordInputLayout;
     TextView forgotPasswordText;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login);
 
         loginEmailInput = findViewById(R.id.loginEmailInput);
         loginPasswordInput = findViewById(R.id.loginPasswordInput);

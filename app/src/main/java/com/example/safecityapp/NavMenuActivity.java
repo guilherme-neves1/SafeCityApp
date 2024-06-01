@@ -41,16 +41,6 @@ public class NavMenuActivity extends AppCompatActivity implements NavigationView
             navigationView.setCheckedItem(R.id.nav_home);
         }
 
-//        getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
-//            @Override
-//            public void handleOnBackPressed() {
-//                if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-//                    drawerLayout.closeDrawer(GravityCompat.START);
-//                } else {
-//                    NavMenuActivity.super.onBackPressed();
-//                }
-//            }
-//        });
     }
 
     @Override
