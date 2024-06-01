@@ -6,42 +6,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/login_background"
-    android:layout_margin="5dp"
     android:padding="5dp"
     android:orientation="vertical">
 
     <!-- Icone Menu   -->
+
+    <!--Usuario-->
     <com.google.android.material.imageview.ShapeableImageView
         android:layout_width="60dp"
         android:layout_height="60dp"
+        android:layout_marginTop="5dp"
         android:layout_marginRight="15dp"
         android:src="@android:drawable/ic_menu_sort_by_size"
         app:shapeAppearanceOverlay="@style/circular"
-        app:strokeColor="#FF5722"
-        android:layout_marginTop="5dp" />
+        app:strokeColor="#FF5722" />
 
-    <!--Usuario-->
+    <!--Denuncia-->
     <TextView
         android:id="@+id/textMENUser"
         android:layout_width="350dp"
         android:layout_height="50dp"
+        android:layout_marginTop="10dp"
         android:fontFamily="sans-serif-black"
         android:padding="10dp"
         android:text="Usuário:"
         android:textColor="@color/white"
-        android:textSize="15dp"
-        android:layout_marginTop="10dp"/>
+        android:textSize="15dp" />
 
-    <!--Denuncia-->
     <ImageButton
         android:id="@+id/MenuDenuncia"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
         android:layout_marginTop="30dp"
         android:backgroundTint="@color/orange"
-        tools:srcCompat="@drawable/denun"
-        android:layout_gravity="center"
-        android:layout_margin="10dp"/>
+        tools:srcCompat="@drawable/denun" />
 
     <TextView
         android:id="@+id/textdenuncia"
