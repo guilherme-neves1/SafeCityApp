@@ -50,6 +50,9 @@ dependencies {
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
     implementation("androidx.activity:activity:1.9.0")
+    implementation ("androidx.appcompat:appcompat:1.6.1") // Verifique se essa versão está correta
+    implementation ("com.google.android.material:material:1.9.0") // Verifique se essa versão está correta
+    // Outras dependências
 
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
