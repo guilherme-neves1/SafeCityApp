@@ -6,10 +6,9 @@
 
         <item name="colorPrimary">@color/orangetom7</item>
         <item name="colorPrimaryVariant">@color/orangetom7</item>
+
     </style>
 
     <style name="Theme.SafeCityApp" parent="Base.Theme.SafeCityApp" />
-
-
 
 </resources>
