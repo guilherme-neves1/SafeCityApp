@@ -50,7 +50,8 @@ public class NavMenuActivity extends AppCompatActivity implements NavigationView
             Intent mapIntent = new Intent(this, MapsActivity.class);
             startActivity(mapIntent);
         } else if (id == R.id.nav_post) {
-            // Implementar a navegação para a tela de post
+            Intent postIntent = new Intent(this, PostActivity.class);
+            startActivity(postIntent);
         } else if (id == R.id.nav_home) {
             Intent homeIntent = new Intent(this, HomeActivity.class);
             startActivity(homeIntent);
