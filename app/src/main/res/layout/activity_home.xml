@@ -6,6 +6,8 @@
     android:layout_height="700dp"
     android:orientation="vertical"
     android:padding="16dp"
+    android:backgroundTint="@color/white"
+    android:background="@color/white"
     tools:context=".MainActivity">
 
     <!-- Nome do aplicativo -->
@@ -29,6 +31,7 @@
         android:paddingBottom="16dp"
         android:text="Compartilhe informações e ajude a proteger sua comunidade"
         android:textSize="13dp"
+        android:textColor="@color/black"
         android:textStyle="bold" />
 
     <!-- Botões -->
@@ -98,6 +101,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:layout_margin="25dp"
+                android:textColor="@color/black"
                 android:textAlignment="center"
                 android:text="Acidente entre carreta com cilindro de gás e caminhão interdita pista expressa da Via Dutra por 2 horas em Guarulhos, Grande SP" />
         </LinearLayout>
@@ -121,6 +125,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:layout_margin="25dp"
+                android:textColor="@color/black"
                 android:textAlignment="center"
                 android:text="Polícia persegue suspeitos de roubo a casa por 30 km em SP; 4 foram presos e 1 morreu" />
         </LinearLayout>
@@ -144,6 +149,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="25dp"
                 android:layout_weight="2"
+                android:textColor="@color/black"
                 android:text="Prefeitura libera último viaduto do Trevo de Bonsucesso e complexo que liga a Dutra à avenida Papa João Paulo I"
                 android:textAlignment="center" />
 

@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
+    android:backgroundTint="@color/white"
+    android:background="@color/white"
     tools:context=".PostActivity">
 
     <TextView
@@ -15,6 +17,7 @@
         android:text="Nova publicação"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:textColor="@color/black"
         android:layout_gravity="center"
         android:layout_marginBottom="16dp" />
 
@@ -23,6 +26,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:hint="Digite sua denúncia:"
+        android:textColorHint="@color/black"
         android:padding="10dp"
         android:gravity="top|start"
         android:background="@android:drawable/editbox_background" />

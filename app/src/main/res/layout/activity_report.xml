@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="@color/white"
+    android:background="@color/white"
     tools:context=".ReportActivity">
 
     <ScrollView
@@ -47,6 +49,7 @@
                 android:text="Ocorrências que se encaixam no boletim eletrônico:"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginBottom="8dp" />
 
             <TextView
@@ -55,6 +58,7 @@
                 android:layout_height="wrap_content"
                 android:text="• Furto de veículo\n• Furto de documento\n• Furto de celular\n• Perda de documento\n• Desaparecimento de pessoa\n• Outros casos permitidos pela Polícia Civil"
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:textAlignment="textStart"
                 android:layout_marginBottom="16dp"
                 android:elegantTextHeight="true"/>
@@ -66,6 +70,7 @@
                 android:text="Instruções para realizar o boletim eletrônico:"
                 android:textSize="18sp"
                 android:textStyle="bold"
+                android:textColor="@color/black"
                 android:layout_marginBottom="8dp" />
 
             <TextView
@@ -74,6 +79,7 @@
                 android:layout_height="wrap_content"
                 android:text="1. Acesse o site oficial da Polícia Civil de São Paulo.\n2. Preencha os dados solicitados no formulário eletrônico.\n3. Revise as informações e confirme o envio.\n4. Você receberá um número de protocolo para acompanhar o andamento."
                 android:textSize="16sp"
+                android:textColor="@color/black"
                 android:textAlignment="textStart"
                 android:layout_marginBottom="16dp" />
 
