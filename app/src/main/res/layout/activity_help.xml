@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpActivity">
+
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="16dp"
+            android:background="@color/background_color">
+
+            <TextView
+                android:id="@+id/helpTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Ajuda"
+                android:textSize="24sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/searchHelpText" />
+
+            <TextView
+                android:id="@+id/searchHelpText"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Olá, como podemos te ajudar?"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/helpTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/searchContainer"
+                android:layout_marginTop="8dp" />
+
+            <LinearLayout
+                android:id="@+id/searchContainer"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/search_background"
+                android:padding="8dp"
+                app:layout_constraintTop_toBottomOf="@id/searchHelpText"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/faqTitle"
+                android:layout_marginTop="8dp">
+
+                <EditText
+                    android:id="@+id/searchInput"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:hint="Tente 'Recuperar senha'"
+                    android:background="@null"
+                    android:padding="8dp"
+                    android:textColor="@color/black"
+                    android:textColorHint="@color/gray" />
+
+                <ImageButton
+                    android:id="@+id/searchButton"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_search"
+                    android:background="@null"
+                    android:contentDescription="@string/search" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/faqTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="Principais dúvidas"
+                android:textSize="18sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintTop_toBottomOf="@id/searchContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/faqList"
+                android:layout_marginTop="16dp" />
+
+            <LinearLayout
+                android:id="@+id/faqList"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/faqTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <!-- Add FAQ items here -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Como posso compartilhar minha denúncia"
+                    android:textSize="16sp"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Como consigo publicar anonimamente"
+                    android:textSize="16sp"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Como enviar e preencher o boletim"
+                    android:textSize="16sp"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Devo deixar minha localização ligada?"
+                    android:textSize="16sp"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:textColor="@color/black" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Não consigo recuperar minha senha"
+                    android:textSize="16sp"
+                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:padding="8dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </FrameLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:menu="@menu/drawer_menu"
+        app:headerLayout="@layout/nav_header" />
+
+</androidx.drawerlayout.widget.DrawerLayout>
