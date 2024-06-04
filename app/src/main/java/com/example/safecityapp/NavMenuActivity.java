@@ -50,12 +50,14 @@ public class NavMenuActivity extends AppCompatActivity implements NavigationView
             Intent mapIntent = new Intent(this, MapsActivity.class);
             startActivity(mapIntent);
         } else if (id == R.id.nav_post) {
-            // Implementar a navegação para a tela de post
+            Intent postIntent = new Intent(this, PostActivity.class);
+            startActivity(postIntent);
         } else if (id == R.id.nav_home) {
             Intent homeIntent = new Intent(this, HomeActivity.class);
             startActivity(homeIntent);
         } else if (id == R.id.nav_police) {
-            // Implementar a navegação para a tela de boletim
+            Intent reportIntent = new Intent(this, ReportActivity.class);
+            startActivity(reportIntent);
         } else if (id == R.id.nav_settings) {
             // Implementar a navegação para a tela de configurações
         } else if (id == R.id.nav_help) {
