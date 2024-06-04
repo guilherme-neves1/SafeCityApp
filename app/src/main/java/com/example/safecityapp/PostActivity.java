@@ -21,6 +21,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+
 import java.io.IOException;
 import java.io.InputStream;
 
@@ -28,22 +29,24 @@ public class PostActivity extends NavMenuActivity {
 
     private static final int REQUEST_CAMERA = 1;
     private static final int REQUEST_GALLERY = 2;
+    private static final int REQUEST_LOCATION = 3;
 
     private EditText editTextPost;
-    private ImageView cameraIcon, galleryIcon, deleteIcon, anonymousIcon;
+    private ImageView cameraIcon, galleryIcon, deleteIcon, anonymousIcon, locatonIcon;
     private Button submitPostButton;
     private boolean isAnonymous = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getLayoutInflater().inflate(R.layout.activity_post, findViewById(R.id.fragment_container)); // Certifique-se de que 'fragment_container' é o ID correto
+        getLayoutInflater().inflate(R.layout.activity_post, findViewById(R.id.fragment_container)); // MENU
 
         editTextPost = findViewById(R.id.editTextPost);
         cameraIcon = findViewById(R.id.cameraIcon);
         galleryIcon = findViewById(R.id.galleryIcon);
         deleteIcon = findViewById(R.id.deleteIcon);
         anonymousIcon = findViewById(R.id.anonymousIcon);
+        locatonIcon = findViewById(R.id.locatonIcon);
         submitPostButton = findViewById(R.id.submitPostButton);
 
         cameraIcon.setOnClickListener(new View.OnClickListener() {
@@ -82,8 +85,21 @@ public class PostActivity extends NavMenuActivity {
                 isAnonymous = !isAnonymous;
                 if (isAnonymous) {
                     anonymousIcon.setImageResource(R.drawable.post_visibilityoff);
+                    Toast.makeText(PostActivity.this, "Postagem anônima: Ativado", Toast.LENGTH_SHORT).show();
                 } else {
                     anonymousIcon.setImageResource(R.drawable.post_visibilityon);
+                    Toast.makeText(PostActivity.this, "Postagem anônima: Desativado", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
+        locatonIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (ContextCompat.checkSelfPermission(PostActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+                    ActivityCompat.requestPermissions(PostActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, REQUEST_LOCATION);
+                } else {
+                    showLocationPermissionGrantedMessage();
                 }
             }
         });
@@ -95,6 +111,10 @@ public class PostActivity extends NavMenuActivity {
                 Toast.makeText(PostActivity.this, "Postagem feita!", Toast.LENGTH_SHORT).show(); // Mensagem de postagem feita
             }
         });
+    }
+
+    private void showLocationPermissionGrantedMessage() {
+        Toast.makeText(this, "Permissão de localização concedida", Toast.LENGTH_SHORT).show();
     }
 
     private void openCamera() {
@@ -137,5 +157,17 @@ public class PostActivity extends NavMenuActivity {
 
         editTextPost.setText(ssb);
         editTextPost.setSelection(ssb.length());
+    }
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        if (requestCode == REQUEST_LOCATION) {
+            if (grantResults.length > 0 && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                showLocationPermissionGrantedMessage();
+            } else {
+                Toast.makeText(this, "Permissão de localização negada", Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 }

@@ -71,6 +71,14 @@
                 android:layout_margin="10dp"
                 app:tint="#E2725B" />
 
+            <ImageView
+                android:id="@+id/locatonIcon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:src="@drawable/post_location"
+                android:layout_margin="10dp"
+                app:tint="#E2725B" />
+
         </LinearLayout>
 
         <Button

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ReportActivity">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <ImageView
+                android:id="@+id/reportLogo"
+                android:layout_width="250dp"
+                android:layout_height="wrap_content"
+                android:src="@drawable/report_logo"
+                android:layout_gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/reportTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Boletim de Ocorrência Eletrônico"
+                android:textSize="24sp"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:id="@+id/occurrencesTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ocorrências que se encaixam no boletim eletrônico:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/occurrencesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="• Furto de veículo\n• Furto de documento\n• Furto de celular\n• Perda de documento\n• Desaparecimento de pessoa\n• Outros casos permitidos pela Polícia Civil"
+                android:textSize="16sp"
+                android:textAlignment="textStart"
+                android:layout_marginBottom="16dp"
+                android:elegantTextHeight="true"/>
+
+            <TextView
+                android:id="@+id/instructionsTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Instruções para realizar o boletim eletrônico:"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/instructionsList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="1. Acesse o site oficial da Polícia Civil de São Paulo.\n2. Preencha os dados solicitados no formulário eletrônico.\n3. Revise as informações e confirme o envio.\n4. Você receberá um número de protocolo para acompanhar o andamento."
+                android:textSize="16sp"
+                android:textAlignment="textStart"
+                android:layout_marginBottom="16dp" />
+
+            <Button
+                android:id="@+id/btnGoToWebsite"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Ir para o site oficial"
+                android:layout_gravity="center"
+                android:backgroundTint="#E2725B"
+                android:textColor="#FFF"
+                android:textSize="16sp"
+                android:elegantTextHeight="true"/>
+        </LinearLayout>
+    </ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>
