@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="@color/white"
+    tools:context=".AboutActivity">
+
+    <!-- Título -->
+    <TextView
+        android:id="@+id/aboutTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="Sobre"
+        android:textSize="32sp"
+        android:textColor="#E2725B"
+        android:textStyle="bold"
+        android:textAlignment="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <!-- Linha abaixo do título -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/aboutTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="15dp"/>
+
+    <!-- Logo -->
+    <ImageView
+        android:id="@+id/logo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/logo"
+        app:layout_constraintTop_toBottomOf="@id/aboutTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="40dp" />
+
+    <!-- Texto descritivo -->
+    <TextView
+        android:id="@+id/aboutText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="O Safe City nasce a partir do momento em que a população sente que não tem uma maneira eficiente de receber informações em tempo real sobre incidentes de segurança em sua área, ou ao longo de suas rotas de viagem.\n\nAs fontes de informação disponíveis, como notícias locais ou redes sociais, muitas vezes não são atualizadas instantaneamente e podem não ser específicas o suficiente para ajudar a evitar áreas de risco imediato."
+        android:textSize="16sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        app:layout_constraintTop_toBottomOf="@id/logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="26dp" />
+
+    <!-- Linha horizontal acima da assinatura -->
+    <View
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toBottomOf="@id/aboutText"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="32dp"/>
+
+    <!-- Assinatura -->
+    <TextView
+        android:id="@+id/copyrightText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="© 2024 - Safe City. Todos os direitos reservados ®"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="10dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

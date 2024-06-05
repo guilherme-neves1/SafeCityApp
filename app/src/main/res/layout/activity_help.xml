@@ -24,7 +24,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Ajuda"
-                android:textSize="32sp"
+                android:textSize="24sp"
                 android:textColor="#E2725B"
                 android:textStyle="bold"
                 android:textAlignment="center"
@@ -75,9 +75,10 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:hint="Tente 'Recuperar senha'"
+                    android:hint="Tente: 'Recuperar senha'"
                     android:background="@null"
                     android:padding="8dp"
+                    android:textSize="18sp"
                     android:textColor="@color/black"
                     android:textColorHint="#434343" />
 

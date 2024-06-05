@@ -65,8 +65,8 @@ public class NavMenuActivity extends AppCompatActivity implements NavigationView
             Intent helpIntent = new Intent(this, HelpActivity.class);
             startActivity(helpIntent);
         } else if (id == R.id.nav_about) {
-            //Intent aboutIntent = new Intent(this, AboutActivity.class);
-            //startActivity(aboutIntent);
+            Intent aboutIntent = new Intent(this, AboutActivity.class);
+            startActivity(aboutIntent);
         } else if (id == R.id.nav_logout) {
             // Implementar a navegação para logout
         }
