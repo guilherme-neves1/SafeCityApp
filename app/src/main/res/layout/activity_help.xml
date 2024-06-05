@@ -18,44 +18,56 @@
             android:padding="16dp"
             android:background="@color/white">
 
+            <!-- Título Ajuda -->
             <TextView
                 android:id="@+id/helpTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Ajuda"
-                android:textSize="24sp"
-                android:textColor="@color/black"
+                android:textSize="32sp"
+                android:textColor="#E2725B"
                 android:textStyle="bold"
                 android:textAlignment="center"
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/searchHelpText" />
+                app:layout_constraintEnd_toEndOf="parent" />
 
+            <!-- Linha abaixo do título -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/helpTitle"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="25dp"/>
+
+            <!-- Texto de saudação -->
             <TextView
                 android:id="@+id/searchHelpText"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Olá, como podemos te ajudar?"
-                android:textSize="18sp"
+                android:textSize="20sp"
+                android:textStyle="bold"
                 android:textColor="@color/black"
+                android:textAlignment="center"
                 app:layout_constraintTop_toBottomOf="@id/helpTitle"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/searchContainer"
-                android:layout_marginTop="8dp" />
+                android:layout_marginTop="45dp" />
 
+            <!-- Caixa de busca -->
             <LinearLayout
                 android:id="@+id/searchContainer"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:background="@drawable/help_search"
-                android:padding="8dp"
+                android:background="@drawable/help_search_background"
+                android:padding="4dp"
                 app:layout_constraintTop_toBottomOf="@id/searchHelpText"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/faqTitle"
                 android:layout_marginTop="8dp">
 
                 <EditText
@@ -67,32 +79,45 @@
                     android:background="@null"
                     android:padding="8dp"
                     android:textColor="@color/black"
-                    android:textColorHint="@color/gray" />
+                    android:textColorHint="#434343" />
 
                 <ImageButton
                     android:id="@+id/searchButton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/ic_search"
+                    android:src="@drawable/help_search"
                     android:background="@null"
-                    android:contentDescription="@string/search" />
+                    android:layout_marginRight="10dp"
+                    android:layout_gravity="center_vertical"
+                    app:tint="#E2725B"/>
             </LinearLayout>
 
+            <!-- Linha abaixo da caixa de busca -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:background="@color/black"
+                app:layout_constraintTop_toBottomOf="@id/searchContainer"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="30dp"/>
+
+            <!-- Título Principais Dúvidas -->
             <TextView
                 android:id="@+id/faqTitle"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:text="Principais dúvidas"
-                android:textSize="24sp"
+                android:textSize="20sp"
                 android:textColor="@color/black"
                 android:textStyle="bold"
                 android:textAlignment="center"
                 app:layout_constraintTop_toBottomOf="@id/searchContainer"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintBottom_toTopOf="@+id/faqList"
-                android:layout_marginTop="16dp" />
+                android:layout_marginTop="55dp" />
 
+            <!-- Lista de FAQs -->
             <LinearLayout
                 android:id="@+id/faqList"
                 android:layout_width="0dp"
@@ -113,7 +138,7 @@
                     android:padding="8dp"
                     android:background="?attr/selectableItemBackground"
                     android:layout_marginTop="25dp"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="10dp"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -125,7 +150,7 @@
                     android:drawableEnd="@drawable/help_arrow_right"
                     android:padding="8dp"
                     android:background="?attr/selectableItemBackground"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="10dp"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -137,7 +162,7 @@
                     android:drawableEnd="@drawable/help_arrow_right"
                     android:padding="8dp"
                     android:background="?attr/selectableItemBackground"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="10dp"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -149,7 +174,7 @@
                     android:drawableEnd="@drawable/help_arrow_right"
                     android:padding="8dp"
                     android:background="?attr/selectableItemBackground"
-                    android:layout_marginBottom="5dp"
+                    android:layout_marginBottom="10dp"
                     android:textColor="@color/black" />
 
                 <TextView
@@ -165,13 +190,5 @@
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
-
-    <com.google.android.material.navigation.NavigationView
-        android:id="@+id/nav_view"
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        app:menu="@menu/drawer_menu"
-        app:headerLayout="@layout/nav_header" />
 
 </androidx.drawerlayout.widget.DrawerLayout>
