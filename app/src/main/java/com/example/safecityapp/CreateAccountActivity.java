@@ -2,17 +2,11 @@ package com.example.safecityapp;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
-import android.content.res.ColorStateList;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-
-import com.google.android.material.textfield.TextInputEditText;
-import com.google.android.material.textfield.TextInputLayout;
-import android.graphics.Color;
-import android.content.res.ColorStateList;
-
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -20,15 +14,18 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.safecityapp.service.CepResponse;
 import com.example.safecityapp.service.RetrofitClient;
 import com.example.safecityapp.service.ViaCepService;
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
+import java.text.BreakIterator;
 import java.util.Calendar;
 import java.util.HashMap;
-
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -76,6 +73,7 @@ public class CreateAccountActivity extends AppCompatActivity {
 
         // Inicializando o mapeamento UF -> Nome completo
         ufMap = new HashMap<>();
+        // Adicione aqui o mapeamento dos estados
         ufMap.put("AC", "Acre");
         ufMap.put("AL", "Alagoas");
         ufMap.put("AP", "Amapá");
@@ -122,10 +120,10 @@ public class CreateAccountActivity extends AppCompatActivity {
         // Configurando preenchimento automático do CEP
         cepInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
+            public void onTextChanged(CharSequence s, int start, int before, int count) {}
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -137,65 +135,29 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
 
         registerBtn.setOnClickListener(v -> {
-            String fullName = fullNameInput.getText().toString();
-            String birth = birthInput.getText().toString();
-            String sex = sexSpinner.getSelectedItem().toString();
-
-            String cep = cepInput.getText().toString();
-            String address = addressInput.getText().toString();
-            String num = numInput.getText().toString();
-            String complement = complInput.getText().toString();
-            String district = distInput.getText().toString();
-            String city = cityInput.getText().toString();
-            String state = stateSpinner.getSelectedItem().toString();
-
-            String tel = telInput.getText().toString();
-            String email = emailInput.getText().toString();
-            String password = passwordInput.getText().toString();
-            String confirmPassword = confirmPasswordInput.getText().toString();
-
-            // Verificar se todos os campos obrigatórios estão preenchidos
-            if (fullName.isEmpty() || birth.isEmpty() || sex.isEmpty() || cep.isEmpty() || address.isEmpty() || district.isEmpty()  || city.isEmpty() || state.isEmpty() || tel.isEmpty() || email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
-                // Destacar os campos não preenchidos
-                highlightEmptyFields();
-                Toast.makeText(CreateAccountActivity.this, "Todos os campos com * devem ser preenchidos.", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            // Verificar se a senha tem pelo menos 6 caracteres
-            if (password.length() < 6) {
-                Toast.makeText(CreateAccountActivity.this, "A senha deve ter pelo menos 6 caracteres.", Toast.LENGTH_SHORT).show();
-                return;
-            }
-
-            if (password.equals(confirmPassword)) {
+            if (areFieldsValid()) {
                 // Lógica para registrar o usuário
+                Salvar();
+
+
+                // Mostrar mensagem de sucesso
                 Toast.makeText(CreateAccountActivity.this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
-                // Pode adicionar aqui a lógica para salvar os dados do usuário ou enviar para o servidor
-            } else {
-                Toast.makeText(CreateAccountActivity.this, "As senhas não coincidem!", Toast.LENGTH_SHORT).show();
+
+                // Redirecionar para a tela de login após o registro bem-sucedido
+                Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish(); // Finaliza a atividade atual para que o usuário não possa voltar para a tela de registro com o botão "Voltar"
             }
         });
 
-        // Limpar o destaque vermelho quando o usuário começar a preencher um campo
-        TextWatcher clearErrorWatcher = new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) { }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) { }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                clearErrors();
-            }
-        };
-
-        // Adicionando TextWatcher a todos os campos
+        // Adicionando TextWatcher a todos os campos para limpar erros
+        TextWatcher clearErrorWatcher = new ClearErrorTextWatcher();
         fullNameInput.addTextChangedListener(clearErrorWatcher);
         birthInput.addTextChangedListener(clearErrorWatcher);
         cepInput.addTextChangedListener(clearErrorWatcher);
         addressInput.addTextChangedListener(clearErrorWatcher);
+        numInput.addTextChangedListener(clearErrorWatcher);
+        complInput.addTextChangedListener(clearErrorWatcher);
         distInput.addTextChangedListener(clearErrorWatcher);
         cityInput.addTextChangedListener(clearErrorWatcher);
         telInput.addTextChangedListener(clearErrorWatcher);
@@ -203,7 +165,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         passwordInput.addTextChangedListener(clearErrorWatcher);
         confirmPasswordInput.addTextChangedListener(clearErrorWatcher);
 
-
+        // Validação do formato de email
         emailInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -213,12 +175,11 @@ public class CreateAccountActivity extends AppCompatActivity {
 
             @Override
             public void afterTextChanged(Editable s) {
-                if (!s.toString().contains("@")) {
-                    emailInput.setError("Email deve conter '@'");
+                if (!android.util.Patterns.EMAIL_ADDRESS.matcher(s).matches()) {
+                    emailInput.setError("Email inválido");
                 }
             }
         });
-
 
         // Formatação de Telefone
         telInput.addTextChangedListener(new TextWatcher() {
@@ -253,7 +214,6 @@ public class CreateAccountActivity extends AppCompatActivity {
         });
     }
 
-
     // Data de Nascimento - Calendário
     private void showDatePickerDialog() {
         final Calendar calendar = Calendar.getInstance();
@@ -282,119 +242,142 @@ public class CreateAccountActivity extends AppCompatActivity {
                     addressInput.setText(cepResponse.getLogradouro());
                     distInput.setText(cepResponse.getBairro());
                     cityInput.setText(cepResponse.getLocalidade());
-
-                    // Atualizando o Spinner de estado
                     String uf = cepResponse.getUf();
-                    if (uf != null) {
-                        String stateName = ufMap.get(uf);
-                        if (stateName != null) {
-                            ArrayAdapter<CharSequence> adapter = (ArrayAdapter<CharSequence>) stateSpinner.getAdapter();
-                            int spinnerPosition = adapter.getPosition(stateName);
-                            if (spinnerPosition >= 0) {
-                                stateSpinner.setSelection(spinnerPosition);
-                            }
-                        }
+                    if (ufMap.containsKey(uf)) {
+                        int position = ((ArrayAdapter<String>) stateSpinner.getAdapter()).getPosition(ufMap.get(uf));
+                        stateSpinner.setSelection(position);
                     }
-
-                    // Tornar os campos não editáveis
+                    addressInput.setEnabled(false);
                     distInput.setEnabled(false);
                     cityInput.setEnabled(false);
                     stateSpinner.setEnabled(false);
-
                 } else {
-                    Toast.makeText(CreateAccountActivity.this, "CEP não encontrado.", Toast.LENGTH_SHORT).show();
+                    clearAddressFields();
+                    Toast.makeText(CreateAccountActivity.this, "CEP inválido", Toast.LENGTH_SHORT).show();
                 }
             }
 
             @Override
             public void onFailure(Call<CepResponse> call, Throwable t) {
-                Toast.makeText(CreateAccountActivity.this, "Erro ao buscar CEP.", Toast.LENGTH_SHORT).show();
+                clearAddressFields();
+                Toast.makeText(CreateAccountActivity.this, "Erro ao buscar CEP", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    // Métodos para destacar campos vazios em vermelho e limpar erros
-    private void highlightEmptyFields() {
-        if (fullNameInput.getText().toString().isEmpty()) {
-            TextInputLayout fullNameInputLayout = findViewById(R.id.fullNameInputLayout);
-            fullNameInputLayout.setBoxStrokeColor(Color.RED);
-            fullNameInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            fullNameInput.setError("Campo obrigatório");
-        }
-        if (birthInput.getText().toString().isEmpty()) {
-            TextInputLayout birthInputLayout = findViewById(R.id.birthInputLayout);
-            birthInputLayout.setBoxStrokeColor(Color.RED);
-            birthInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            birthInput.setError("Campo obrigatório");
-        }
-        if (cepInput.getText().toString().isEmpty()) {
-            TextInputLayout cepInputLayout = findViewById(R.id.cepInputLayout);
-            cepInputLayout.setBoxStrokeColor(Color.RED);
-            cepInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            cepInput.setError("Campo obrigatório");
-        }
-        if (addressInput.getText().toString().isEmpty()) {
-            TextInputLayout addressInputLayout = findViewById(R.id.addressInputLayout);
-            addressInputLayout.setBoxStrokeColor(Color.RED);
-            addressInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            addressInput.setError("Campo obrigatório");
-        }
-        if (distInput.getText().toString().isEmpty()) {
-            TextInputLayout distInputLayout = findViewById(R.id.distInputLayout);
-            distInputLayout.setBoxStrokeColor(Color.RED);
-            distInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            distInput.setError("Campo obrigatório");
-        }
-        if (cityInput.getText().toString().isEmpty()) {
-            TextInputLayout cityInputLayout = findViewById(R.id.cityInputLayout);
-            cityInputLayout.setBoxStrokeColor(Color.RED);
-            cityInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            cityInput.setError("Campo obrigatório");
-        }
-        if (telInput.getText().toString().isEmpty()) {
-            TextInputLayout telInputLayout = findViewById(R.id.telInputLayout);
-            telInputLayout.setBoxStrokeColor(Color.RED);
-            telInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            telInput.setError("Campo obrigatório");
-        }
-        if (emailInput.getText().toString().isEmpty()) {
-            TextInputLayout emailInputLayout = findViewById(R.id.emailInputLayout);
-            emailInputLayout.setBoxStrokeColor(Color.RED);
-            emailInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            emailInput.setError("Campo obrigatório");
-        }
-        if (passwordInput.getText().toString().isEmpty()) {
-            TextInputLayout passwordInputLayout = findViewById(R.id.passwordInputLayout);
-            passwordInputLayout.setBoxStrokeColor(Color.RED);
-            passwordInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            passwordInput.setError("Campo obrigatório");
-        }
-        if (confirmPasswordInput.getText().toString().isEmpty()) {
-            TextInputLayout confirmPasswordInputLayout = findViewById(R.id.confirmPasswordInputLayout);
-            confirmPasswordInputLayout.setBoxStrokeColor(Color.RED);
-            confirmPasswordInputLayout.setHintTextColor(ColorStateList.valueOf(Color.RED));
-            confirmPasswordInput.setError("Campo obrigatório");
-        }
+    private void clearAddressFields() {
+        addressInput.setText("");
+        distInput.setText("");
+        cityInput.setText("");
+        stateSpinner.setSelection(0);
+        addressInput.setEnabled(true);
+        distInput.setEnabled(true);
+        cityInput.setEnabled(true);
+        stateSpinner.setEnabled(true);
     }
 
-    private void clearErrors() {
-        clearFieldError((TextInputEditText) fullNameInput, R.id.fullNameInputLayout);
-        clearFieldError((TextInputEditText) birthInput, R.id.birthInputLayout);
-        clearFieldError((TextInputEditText) cepInput, R.id.cepInputLayout);
-        clearFieldError((TextInputEditText) addressInput, R.id.addressInputLayout);
-        clearFieldError((TextInputEditText) distInput, R.id.distInputLayout);
-        clearFieldError((TextInputEditText) cityInput, R.id.cityInputLayout);
-        clearFieldError((TextInputEditText) telInput, R.id.telInputLayout);
-        clearFieldError((TextInputEditText) emailInput, R.id.emailInputLayout);
-        clearFieldError((TextInputEditText) passwordInput, R.id.passwordInputLayout);
-        clearFieldError((TextInputEditText) confirmPasswordInput, R.id.confirmPasswordInputLayout);
+    private boolean areFieldsValid() {
+        boolean valid = true;
+
+        valid &= validateField(fullNameInput, "Nome completo é obrigatório");
+        valid &= validateField(birthInput, "Data de nascimento é obrigatória");
+        valid &= validateField(sexSpinner, "Sexo é obrigatório");
+        valid &= validateField(cepInput, "CEP é obrigatório");
+        valid &= validateField(addressInput, "Endereço é obrigatório");
+        valid &= validateField(numInput, "Número é obrigatório");
+        valid &= validateField(distInput, "Bairro é obrigatório");
+        valid &= validateField(cityInput, "Cidade é obrigatória");
+        valid &= validateField(telInput, "Telefone é obrigatório");
+        valid &= validateField(emailInput, "Email é obrigatório");
+        valid &= validateField(passwordInput, "Senha é obrigatória");
+        valid &= validateField(confirmPasswordInput, "Confirmação de senha é obrigatória");
+
+        // Validação do estado como opcional
+        if (stateSpinner.getSelectedItemPosition() == 0 && stateSpinner.isEnabled()) {
+            ((TextView) stateSpinner.getSelectedView()).setError(null);
+            ((TextView) stateSpinner.getSelectedView()).setTextColor(Color.BLACK);
+        }
+
+        // Validação do formato de email
+        if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailInput.getText().toString()).matches()) {
+            emailInput.setError("Email inválido");
+            valid = false;
+        }
+
+        // Validação da senha
+        if (!passwordInput.getText().toString().equals(confirmPasswordInput.getText().toString())) {
+            confirmPasswordInput.setError("Senhas não correspondem");
+            valid = false;
+        }
+
+        return valid;
     }
 
-    private void clearFieldError(TextInputEditText field, int layoutId) {
-        TextInputLayout fieldLayout = findViewById(layoutId);
-        fieldLayout.setBoxStrokeColor(Color.parseColor("#404040"));
-        fieldLayout.setHintTextColor(ColorStateList.valueOf(Color.BLACK));
-        field.setError(null);
+    private boolean validateField(EditText field, String errorMessage) {
+        if (field.getText().toString().trim().isEmpty()) {
+            field.setError(errorMessage);
+            field.setTextColor(Color.RED);
+            return false;
+        } else {
+            field.setTextColor(Color.BLACK);
+        }
+        return true;
     }
 
+    private boolean validateField(Spinner spinner, String errorMessage) {
+        if (spinner.getSelectedItemPosition() == 0) {
+            ((TextView) spinner.getSelectedView()).setError(errorMessage);
+            ((TextView) spinner.getSelectedView()).setTextColor(Color.RED);
+            return false;
+        } else {
+            ((TextView) spinner.getSelectedView()).setTextColor(Color.BLACK);
+        }
+        return true;
+    }
+
+    private class ClearErrorTextWatcher implements TextWatcher {
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            EditText editText = (EditText) getCurrentFocus();
+            if (editText != null) {
+                editText.setError(null);
+                editText.setTextColor(Color.BLACK);
+            }
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {}
+    }
+
+    public void Salvar() {
+        String msg = "";
+        String txtNome = nome.getText().toString();
+        String integerDtnascimento = dtnascimento.getText().toString();
+        String txtSexo = sexo.getText().toString();
+        String integerCep = cep.getText().toString();
+        String txtEndereco = endereco.getText().toString();
+        String integerNumero = numero.getText().toString();
+        String txtComplemento = complemento.getText().toString();
+        String txtBairro = bairro.getText().toString();
+        String txtCidade= cidade.getText().toString();
+        String txtEstado = estado.getText().toString();
+        String integerTelefone = telefone.getText().toString();
+        String txtEmail = email.getText().toString();
+        String txtSenha = senha.getText().toString();
+
+        BancoController bd = new BancoController(getBaseContext());
+        String resultado;
+
+        resultado = bd.insereDadosUsuarios(txtNome, integerDtnascimento, txtSexo, integerCep, txtEndereco, integerNumero, txtComplemento, txtBairro, txtCidade, txtEstado, integerTelefone, txtEmail, txtSenha);
+
+        Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
+        limpar();
+        }
+
+    }
 }
+
+
