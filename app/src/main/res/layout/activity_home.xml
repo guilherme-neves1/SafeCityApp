@@ -3,30 +3,29 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="700dp"
+    android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:backgroundTint="@color/white"
     android:background="@color/white"
-    tools:context=".MainActivity">
+    tools:context=".HomeActivity">
 
     <!-- Nome do aplicativo -->
     <TextView
-        android:id="@+id/nomedoapp"
+        android:id="@+id/appName"
         android:layout_width="wrap_content"
-        android:layout_height="56dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="8dp"
         android:text="Safe City"
-        android:textColor="#CEE2725B"
+        android:textColor="#E2725B"
         android:textSize="24sp"
         android:textStyle="bold" />
 
     <!-- Frase chave -->
     <TextView
-        android:id="@+id/fraseinicio"
+        android:id="@+id/introPhrase"
         android:layout_width="wrap_content"
-        android:layout_height="48dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:paddingBottom="16dp"
         android:text="Compartilhe informações e ajude a proteger sua comunidade"
@@ -37,13 +36,13 @@
     <!-- Botões -->
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="148dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="horizontal"
         android:paddingBottom="16dp">
 
         <Button
-            android:id="@+id/btiniviodenuncia"
+            android:id="@+id/btnReport"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -51,7 +50,7 @@
             android:textSize="11dp" />
 
         <Button
-            android:id="@+id/btinicioboletim"
+            android:id="@+id/btnBulletin"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -59,7 +58,7 @@
             android:textSize="11dp" />
 
         <Button
-            android:id="@+id/btiniciomapa"
+            android:id="@+id/btnMap"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -67,7 +66,7 @@
             android:textSize="11dp" />
 
         <Button
-            android:id="@+id/btinicioajuda"
+            android:id="@+id/btnHelp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -76,85 +75,145 @@
 
     </LinearLayout>
 
-    <!-- Blocos de conteúdo -->
-    <LinearLayout
+    <!-- Conteúdo Scrollável -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:layout_height="0dp"
+        android:layout_weight="1">
 
-        <!-- Bloco 1 -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp">
+            android:orientation="vertical">
 
-            <ImageView
-                android:layout_width="73dp"
-                android:layout_height="141dp"
-                android:layout_weight="1"
-                android:contentDescription="Imagem Acidente"
-                android:src="@drawable/acidente" />
-
-            <TextView
-                android:layout_width="0dp"
+            <!-- Postagem 1 -->
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:layout_margin="25dp"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:text="Acidente entre carreta com cilindro de gás e caminhão interdita pista expressa da Via Dutra por 2 horas em Guarulhos, Grande SP" />
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="@color/white"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Usuario1"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12/03/2024 14:35"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Acidente"
+                    android:src="@drawable/acidente"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Acidente entre carreta com cilindro de gás e caminhão interdita pista expressa da Via Dutra por 2 horas em Guarulhos, Grande SP"
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <!-- Postagem 2 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="@color/white"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Usuario2"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12/03/2024 15:00"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Roubo"
+                    android:src="@drawable/roubo"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Polícia persegue suspeitos de roubo a casa por 30 km em SP; 4 foram presos e 1 morreu"
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <!-- Postagem 3 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="@color/white"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Anonimo"
+                    android:textSize="14sp"
+                    android:textColor="@color/black"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="12/03/2024 16:45"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Trevo"
+                    android:src="@drawable/trevo"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Prefeitura libera último viaduto do Trevo de Bonsucesso e complexo que liga a Dutra à avenida Papa João Paulo I"
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
         </LinearLayout>
 
-        <!-- Bloco 2 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:layout_width="73dp"
-                android:layout_height="141dp"
-                android:layout_weight="1"
-                android:contentDescription="Imagem Roubo"
-                android:src="@drawable/roubo" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:layout_margin="25dp"
-                android:textColor="@color/black"
-                android:textAlignment="center"
-                android:text="Polícia persegue suspeitos de roubo a casa por 30 km em SP; 4 foram presos e 1 morreu" />
-        </LinearLayout>
-
-        <!-- Bloco 3 -->
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="291dp"
-            android:orientation="horizontal"
-            android:paddingBottom="8dp">
-
-            <ImageView
-                android:layout_width="73dp"
-                android:layout_height="141dp"
-                android:layout_weight="1"
-                android:contentDescription="Imagem Trevo"
-                android:src="@drawable/trevo" />
-
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="25dp"
-                android:layout_weight="2"
-                android:textColor="@color/black"
-                android:text="Prefeitura libera último viaduto do Trevo de Bonsucesso e complexo que liga a Dutra à avenida Papa João Paulo I"
-                android:textAlignment="center" />
-
-        </LinearLayout>
-
-    </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>

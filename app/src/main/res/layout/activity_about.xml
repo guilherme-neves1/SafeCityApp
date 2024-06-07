@@ -14,7 +14,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:text="Sobre"
-        android:textSize="32sp"
+        android:textSize="24sp"
         android:textColor="#E2725B"
         android:textStyle="bold"
         android:textAlignment="center"
