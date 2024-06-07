@@ -71,7 +71,6 @@ public class MainActivity extends AppCompatActivity implements OnClickListener {
             Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_LONG).show();
             limpar();
         }
-
     }
 
     public void salvar() {

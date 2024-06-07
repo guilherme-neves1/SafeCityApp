@@ -32,6 +32,40 @@ public class BancoController {
             return "Registro Inserido com sucesso";
     }
 
+    public String insereDadosUsuarios(String txtNome, Integer integerDtnascimento, String txtSexo, Integer integerCep, String txtEndereco, Integer integerNumero, String txtComplemento, String txtBairro, String txtCidade, String txtEstado, Integer integerTelefone, String txtEmail, String txtSenha) {
+        return null;
+    }
+
+    {
+        ContentValues valores;
+        long resultado;
+        db = banco.getWritableDatabase();
+
+        valores = new ContentValues();
+        valores.put("nome", txtNome);
+        valores.put("dtnascimento", integerDtnascimento);
+        valores.put("sexo", txtSexo);
+        valores.put("cep", integerCep);
+        valores.put("endereco", txtEndereco);
+        valores.put("numero", integerNumero);
+        valores.put("complemento", txtCOmplemento);
+        valores.put("bairro", txtBairro);
+        valores.put("cidade", txtCidade);
+        valores.put("estado", txtEstado);
+        valores.put("telefone", integerTelefone);
+        valores.put("email", txtEmail);
+        valores.put("senha", txtSenha);
+
+
+        resultado = db.insert("contatos", null, valores);
+        db.close();
+
+        if (resultado == -1)
+            return "Erro ao inserir registro";
+        else
+            return "Registro Inserido com sucesso";
+    }
+
     public Cursor carregaDadosPeloCodigo(int id) {
         Cursor cursor;
         String[] campos = { "codigo", "nome", "email" };
