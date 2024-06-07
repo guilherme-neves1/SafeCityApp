@@ -298,7 +298,7 @@ public class CreateAccountActivity extends AppCompatActivity {
             ((TextView) stateSpinner.getSelectedView()).setTextColor(Color.BLACK);
         }
 
-        // Validação do formato de email
+        // Validação do formato de e-mail
         if (!android.util.Patterns.EMAIL_ADDRESS.matcher(emailInput.getText().toString()).matches()) {
             emailInput.setError("Email inválido");
             valid = false;
