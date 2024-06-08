@@ -47,51 +47,23 @@
 
             <Button
                 android:id="@+id/btnReport"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:text="Nova Denúncia"
-                android:textSize="11dp"
-                android:backgroundTint="#E2725B"
-                android:textColor="@color/black"
-                android:padding="16dp" />
+                style="@style/CustomButtonStyle"
+                android:text="Nova Denúncia" />
 
             <Button
                 android:id="@+id/btnBulletin"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:text="Boletim"
-                android:textSize="11dp"
-                android:backgroundTint="#E2725B"
-                android:textColor="@color/black"
-                android:padding="16dp" />
+                style="@style/CustomButtonStyle"
+                android:text="Boletim" />
 
             <Button
                 android:id="@+id/btnMap"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:text="Mapa"
-                android:textSize="11dp"
-                android:backgroundTint="#E2725B"
-                android:textColor="@color/black"
-                android:padding="16dp" />
+                style="@style/CustomButtonStyle"
+                android:text="Mapa" />
 
             <Button
                 android:id="@+id/btnHelp"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_columnWeight="1"
-                android:layout_rowWeight="1"
-                android:text="Ajuda"
-                android:textSize="11dp"
-                android:backgroundTint="#E2725B"
-                android:textColor="@color/black"
-                android:padding="16dp" />
+                style="@style/CustomButtonStyle"
+                android:text="Ajuda" />
         </GridLayout>
 
         <!-- Linha separadora -->
