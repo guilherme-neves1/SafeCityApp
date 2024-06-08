@@ -56,6 +56,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Usuário"
+                android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold"/>
 
@@ -63,6 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Bairro"
+                android:textColor="@color/black"
                 android:textSize="14sp"/>
         </LinearLayout>
 
@@ -106,6 +108,7 @@
                 android:layout_weight="1"
                 android:paddingStart="16dp"
                 android:text="Notificações"
+                android:textColor="@color/black"
                 android:textSize="18sp"/>
 
             <ImageView
@@ -136,6 +139,7 @@
                 android:layout_weight="1"
                 android:paddingStart="16dp"
                 android:text="Privacidade"
+                android:textColor="@color/black"
                 android:textSize="18sp"/>
 
             <ImageView
@@ -166,6 +170,7 @@
                 android:layout_weight="1"
                 android:paddingStart="16dp"
                 android:text="Importar Contatos"
+                android:textColor="@color/black"
                 android:textSize="18sp"/>
 
             <ImageView
@@ -196,6 +201,7 @@
                 android:layout_weight="1"
                 android:paddingStart="16dp"
                 android:text="Salvos"
+                android:textColor="@color/black"
                 android:textSize="18sp"/>
 
             <ImageView
@@ -226,6 +232,7 @@
                 android:layout_weight="1"
                 android:paddingStart="16dp"
                 android:text="Deletar Conta"
+                android:textColor="@color/black"
                 android:textSize="18sp"/>
 
             <ImageView
