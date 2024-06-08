@@ -77,11 +77,15 @@ public class LoginActivity extends AppCompatActivity {
                 String password = loginPasswordInput.getText().toString();
 
                 if (validateEmail(email) && validatePassword(password)) {
-                    Log.i("Test Credentials", "Email: " + email + " and Password: " + password);
-
-                    // REDIRECIONAR P/ OUTRA TELA
-                    Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
-                    startActivity(homeIntent);
+                    BancoController bancoController = new BancoController(LoginActivity.this);
+                    if (bancoController.validarLogin(email, password)) {
+                        Log.i("Login Success", "Email: " + email + " and Password: " + password);
+                        Intent homeIntent = new Intent(LoginActivity.this, HomeActivity.class);
+                        startActivity(homeIntent);
+                    } else {
+                        loginEmailInputLayout.setError("Email ou senha inválidos");
+                        loginPasswordInputLayout.setError("Email ou senha inválidos");
+                    }
                 } else {
                     if (!validateEmail(email)) {
                         loginEmailInputLayout.setError("Email inválido");
@@ -103,12 +107,10 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private boolean validateEmail(String email) {
-        return email.contains("@");
+        return email.contains("@") && email.length() > 5;
     }
 
     private boolean validatePassword(String password) {
         return password.length() >= 6;
     }
 }
-
-

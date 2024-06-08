@@ -1,5 +1,6 @@
 package com.example.safecityapp;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -8,6 +9,7 @@ public class CriaBanco extends SQLiteOpenHelper {
 
     private static final String NOME_BANCO = "banco_safecity.db";
     private static final int VERSAO = 2;
+
     public CriaBanco(Context context) {
         super(context, NOME_BANCO, null, VERSAO);
     }
@@ -44,4 +46,3 @@ public class CriaBanco extends SQLiteOpenHelper {
         onCreate(db);
     }
 }
-

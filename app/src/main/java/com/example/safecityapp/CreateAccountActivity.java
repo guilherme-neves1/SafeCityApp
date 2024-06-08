@@ -369,60 +369,53 @@ public class CreateAccountActivity extends AppCompatActivity {
     }
 
 
-    public void Salvar() {
-        String txtNome = fullNameInput.getText().toString();
-        String txtDtnascimento = birthInput.getText().toString();
-        String txtSexo = sexSpinner.getSelectedItem().toString();
-        String IntegerCep = cepInput.getText().toString();
-        String txtEndereco = addressInput.getText().toString();
-        String IntegerNumero = numInput.getText().toString();
-        String txtComplemento = complInput.getText().toString();
-        String txtBairro = distInput.getText().toString();
-        String txtCidade = cityInput.getText().toString();
-        String txtEstado = stateSpinner.getSelectedItem().toString();
-        String IntegerTelefone = telInput.getText().toString();
-        String txtEmail = emailInput.getText().toString();
-        String txtSenha = passwordInput.getText().toString();
-
-        BancoController bd = new BancoController(getBaseContext());
-        String resultado;
-
+    private void Salvar() {
         try {
-            // Adicionar logs para verificar os valores
+            String txtNome = fullNameInput.getText().toString();
+            String txtDtnascimento = birthInput.getText().toString();
+            String txtSexo = sexSpinner.getSelectedItem().toString();
+            String cep = cepInput.getText().toString();
+            String txtEndereco = addressInput.getText().toString();
+            String numero = numInput.getText().toString();
+            String txtComplemento = complInput.getText().toString();
+            String txtBairro = distInput.getText().toString();
+            String txtCidade = cityInput.getText().toString();
+            String txtEstado = stateSpinner.getSelectedItem().toString();
+            String telefone = telInput.getText().toString();
+            String txtEmail = emailInput.getText().toString();
+            String txtSenha = passwordInput.getText().toString();
+
+            // Adicionando logs para verificar os valores dos campos de entrada
             Log.d("CreateAccountActivity", "Nome: " + txtNome);
             Log.d("CreateAccountActivity", "Data de Nascimento: " + txtDtnascimento);
             Log.d("CreateAccountActivity", "Sexo: " + txtSexo);
-            Log.d("CreateAccountActivity", "CEP: " + IntegerCep);
+            Log.d("CreateAccountActivity", "CEP: " + cep);
             Log.d("CreateAccountActivity", "Endereço: " + txtEndereco);
-            Log.d("CreateAccountActivity", "Número: " + IntegerNumero);
+            Log.d("CreateAccountActivity", "Número: " + numero);
             Log.d("CreateAccountActivity", "Complemento: " + txtComplemento);
             Log.d("CreateAccountActivity", "Bairro: " + txtBairro);
             Log.d("CreateAccountActivity", "Cidade: " + txtCidade);
             Log.d("CreateAccountActivity", "Estado: " + txtEstado);
-            Log.d("CreateAccountActivity", "Telefone: " + IntegerTelefone);
+            Log.d("CreateAccountActivity", "Telefone: " + telefone);
             Log.d("CreateAccountActivity", "Email: " + txtEmail);
             Log.d("CreateAccountActivity", "Senha: " + txtSenha);
 
-            // Convertendo strings para inteiros onde necessário
-            int intCep = Integer.parseInt(IntegerCep);
-            int intNumero = Integer.parseInt(IntegerNumero);
-            int intTelefone = Integer.parseInt(IntegerTelefone);
+            // Limpando caracteres não numéricos antes de converter
+            long longCep = Long.parseLong(cep.replaceAll("[^\\d]", ""));
+            long longNumero = Long.parseLong(numero.replaceAll("[^\\d]", ""));
+            long longTelefone = Long.parseLong(telefone.replaceAll("[^\\d]", ""));
 
             Log.d("CreateAccountActivity", "Valores convertidos com sucesso");
 
-            resultado = bd.insereDadosUsuarios(txtNome, txtDtnascimento, txtSexo, intCep, txtEndereco, intNumero, txtComplemento, txtBairro, txtCidade, txtEstado, intTelefone, txtEmail, txtSenha);
+            BancoController bd = new BancoController(getBaseContext());
+            String resultado = bd.insereDadosUsuarios(txtNome, txtDtnascimento, txtSexo, longCep, txtEndereco, longNumero, txtComplemento, txtBairro, txtCidade, txtEstado, longTelefone, txtEmail, txtSenha);
 
             Log.d("CreateAccountActivity", "Resultado da inserção no banco: " + resultado);
         } catch (NumberFormatException e) {
             Log.e("CreateAccountActivity", "Erro ao converter string para número: " + e.getMessage(), e);
-            resultado = "Dados Salvos";
         } catch (Exception e) {
             Log.e("CreateAccountActivity", "Erro ao inserir dados no banco: " + e.getMessage(), e);
-            resultado = "Dados Salvos";
         }
-
-        Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
     }
-
 }
 

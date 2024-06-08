@@ -68,10 +68,10 @@ public class NavMenuActivity extends AppCompatActivity implements NavigationView
             Intent aboutIntent = new Intent(this, AboutActivity.class);
             startActivity(aboutIntent);
         } else if (id == R.id.nav_logout) {
-            // Implementar a navegação para logout
+            Intent loginIntent = new Intent(this, LoginActivity.class);
+            startActivity(loginIntent);
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
 }
