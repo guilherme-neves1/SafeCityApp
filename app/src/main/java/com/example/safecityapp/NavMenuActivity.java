@@ -59,8 +59,8 @@ public class NavMenuActivity extends AppCompatActivity implements NavigationView
             Intent reportIntent = new Intent(this, ReportActivity.class);
             startActivity(reportIntent);
         } else if (id == R.id.nav_settings) {
-            //Intent settingsIntent = new Intent(this, SettingsActivity.class);
-            //startActivity(settingsIntent);
+            Intent settingsIntent = new Intent(this, SettingsActivity.class);
+            startActivity(settingsIntent);
         } else if (id == R.id.nav_help) {
             Intent helpIntent = new Intent(this, HelpActivity.class);
             startActivity(helpIntent);
