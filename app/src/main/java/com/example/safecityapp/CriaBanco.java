@@ -44,5 +44,3 @@ public class CriaBanco extends SQLiteOpenHelper {
         onCreate(db);
     }
 }
-
-
