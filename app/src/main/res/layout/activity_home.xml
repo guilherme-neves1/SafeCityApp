@@ -1,86 +1,111 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp"
     android:background="@color/white"
     tools:context=".HomeActivity">
 
-    <!-- Nome do aplicativo -->
-    <TextView
-        android:id="@+id/appName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="8dp"
-        android:text="Safe City"
-        android:textColor="#E2725B"
-        android:textSize="24sp"
-        android:textStyle="bold" />
-
-    <!-- Frase chave -->
-    <TextView
-        android:id="@+id/introPhrase"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:paddingBottom="16dp"
-        android:text="Compartilhe informações e ajude a proteger sua comunidade"
-        android:textSize="13dp"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
-
-    <!-- Botões -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:paddingBottom="16dp">
+        android:orientation="vertical"
+        android:padding="16dp">
 
-        <Button
-            android:id="@+id/btnReport"
-            android:layout_width="0dp"
+        <!-- Nome do aplicativo -->
+        <TextView
+            android:id="@+id/appName"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Nova Denúncia"
-            android:textSize="11dp" />
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="8dp"
+            android:text="Safe City"
+            android:textColor="#E2725B"
+            android:textSize="24sp"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnBulletin"
-            android:layout_width="0dp"
+        <!-- Frase chave -->
+        <TextView
+            android:id="@+id/introPhrase"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Boletim"
-            android:textSize="11dp" />
+            android:layout_gravity="center_horizontal"
+            android:paddingBottom="16dp"
+            android:text="Compartilhe informações e ajude a proteger sua comunidade"
+            android:textSize="13dp"
+            android:textColor="@color/black"
+            android:textStyle="bold" />
 
-        <Button
-            android:id="@+id/btnMap"
-            android:layout_width="0dp"
+        <!-- Botões -->
+        <GridLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Mapa"
-            android:textSize="11dp" />
+            android:columnCount="4"
+            android:paddingBottom="16dp"
+            android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/btnHelp"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Ajuda"
-            android:textSize="11dp" />
+            <Button
+                android:id="@+id/btnReport"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Nova Denúncia"
+                android:textSize="11dp"
+                android:backgroundTint="#E2725B"
+                android:background="@color/black"
+                android:textColor="@color/black"
+                android:padding="16dp" />
 
-    </LinearLayout>
+            <Button
+                android:id="@+id/btnBulletin"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Boletim"
+                android:textSize="11dp"
+                android:backgroundTint="#E2725B"
+                android:background="@color/black"
+                android:textColor="@color/black"
+                android:padding="16dp" />
 
-    <!-- Conteúdo Scrollável -->
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
+            <Button
+                android:id="@+id/btnMap"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Mapa"
+                android:textSize="11dp"
+                android:backgroundTint="#E2725B"
+                android:background="@color/black"
+                android:textColor="@color/black"
+                android:padding="16dp" />
 
+            <Button
+                android:id="@+id/btnHelp"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_rowWeight="1"
+                android:text="Ajuda"
+                android:textSize="11dp"
+                android:backgroundTint="#E2725B"
+                android:background="@color/black"
+                android:textColor="@color/black"
+                android:padding="16dp" />
+        </GridLayout>
+
+        <!-- Linha separadora -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            android:paddingBottom="16dp"/>
+
+        <!-- Conteúdo Scrollável -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -95,18 +120,46 @@
                 android:background="@color/white"
                 android:layout_marginBottom="8dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Usuario1"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/nav_account"
+                        android:contentDescription="User Icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Usuario153"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="25/05/2024 14:35"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="12/03/2024 14:35"
+                    android:text="Guarulhos, Rodovia Presidente Dutra"
                     android:textSize="12sp"
                     android:textColor="@color/black"
                     android:layout_marginBottom="8dp" />
@@ -116,14 +169,14 @@
                     android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:contentDescription="Acidente"
-                    android:src="@drawable/acidente"
+                    android:src="@drawable/home_post1"
                     android:scaleType="centerCrop"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Acidente entre carreta com cilindro de gás e caminhão interdita pista expressa da Via Dutra por 2 horas em Guarulhos, Grande SP"
+                    android:text="Acidente entre carreta com cilindro de gás e caminhão interdita pista expressa da Via Dutra por 2 horas em Guarulhos, Grande SP."
                     android:textSize="14sp"
                     android:textColor="@color/black" />
             </LinearLayout>
@@ -137,18 +190,46 @@
                 android:background="@color/white"
                 android:layout_marginBottom="8dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Usuario2"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/nav_account"
+                        android:contentDescription="User Icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Usuario174"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12/05/2024 16:45"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="12/03/2024 15:00"
+                    android:text="Guarulhos, Pimentas"
                     android:textSize="12sp"
                     android:textColor="@color/black"
                     android:layout_marginBottom="8dp" />
@@ -158,14 +239,14 @@
                     android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:contentDescription="Roubo"
-                    android:src="@drawable/roubo"
+                    android:src="@drawable/home_post2"
                     android:scaleType="centerCrop"
                     android:layout_marginBottom="8dp" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Polícia persegue suspeitos de roubo a casa por 30 km em SP; 4 foram presos e 1 morreu"
+                    android:text="Polícia persegue suspeitos de roubo a casa por 30 km em Guarulhos; 4 foram presos e 1 morreu."
                     android:textSize="14sp"
                     android:textColor="@color/black" />
             </LinearLayout>
@@ -179,18 +260,46 @@
                 android:background="@color/white"
                 android:layout_marginBottom="8dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Anonimo"
-                    android:textSize="14sp"
-                    android:textColor="@color/black"
-                    android:textStyle="bold" />
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/nav_account"
+                        android:contentDescription="User Icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Anônimo"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12/05/2024 15:20"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="12/03/2024 16:45"
+                    android:text="Guarulhos, Bonsucesso"
                     android:textSize="12sp"
                     android:textColor="@color/black"
                     android:layout_marginBottom="8dp" />
@@ -200,7 +309,7 @@
                     android:layout_height="200dp"
                     android:layout_gravity="center"
                     android:contentDescription="Trevo"
-                    android:src="@drawable/trevo"
+                    android:src="@drawable/home_post3"
                     android:scaleType="centerCrop"
                     android:layout_marginBottom="8dp" />
 
@@ -212,8 +321,159 @@
                     android:textColor="@color/black" />
             </LinearLayout>
 
+            <!-- Postagem 4 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="@color/white"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/nav_account"
+                        android:contentDescription="User Icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Anônimo"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12/03/2024 09:10"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Guarulhos, Vila Itapegica"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Trevo"
+                    android:src="@drawable/home_post4"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Passarela provisória é instalada após ponte que dá acesso ao Aeroporto Internacional de SP, em Guarulhos, ceder durante chuva."
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <!-- Postagem 5 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="8dp"
+                android:background="@color/white"
+                android:layout_marginBottom="8dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="48dp"
+                        android:layout_height="48dp"
+                        android:layout_marginEnd="8dp"
+                        android:src="@drawable/nav_account"
+                        android:contentDescription="User Icon" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Usuário276"
+                            android:textSize="14sp"
+                            android:textColor="@color/black"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="27/04/2024 09:10"
+                            android:textSize="12sp"
+                            android:textColor="@color/black"
+                            android:layout_marginBottom="4dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Guarulhos, Cumbica"
+                    android:textSize="12sp"
+                    android:textColor="@color/black"
+                    android:layout_marginBottom="8dp" />
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="200dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="Trevo"
+                    android:src="@drawable/home_post5"
+                    android:scaleType="centerCrop"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Polícia desmantela quadrilha especializada em sequestro e roubo de caminhoneiros em Guarulhos."
+                    android:textSize="14sp"
+                    android:textColor="@color/black" />
+            </LinearLayout>
+
+            <!-- Botão Ver Mais -->
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Ver mais"
+                android:textSize="14sp"
+                android:textColor="@color/black"
+                android:background="@color/white"
+                android:layout_marginBottom="16dp"
+                android:gravity="center" />
+
         </LinearLayout>
 
-    </ScrollView>
+    </LinearLayout>
 
-</LinearLayout>
+</ScrollView>

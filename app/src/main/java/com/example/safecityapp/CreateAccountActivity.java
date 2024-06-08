@@ -137,7 +137,7 @@ public class CreateAccountActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(v -> {
             if (areFieldsValid()) {
                 // Lógica para registrar o usuário
-                Salvar();
+//                Salvar();
 
 
                 // Mostrar mensagem de sucesso
@@ -352,32 +352,32 @@ public class CreateAccountActivity extends AppCompatActivity {
         public void afterTextChanged(Editable s) {}
     }
 
-    public void Salvar() {
-        String msg = "";
-        String txtNome = nome.getText().toString();
-        String integerDtnascimento = dtnascimento.getText().toString();
-        String txtSexo = sexo.getText().toString();
-        String integerCep = cep.getText().toString();
-        String txtEndereco = endereco.getText().toString();
-        String integerNumero = numero.getText().toString();
-        String txtComplemento = complemento.getText().toString();
-        String txtBairro = bairro.getText().toString();
-        String txtCidade= cidade.getText().toString();
-        String txtEstado = estado.getText().toString();
-        String integerTelefone = telefone.getText().toString();
-        String txtEmail = email.getText().toString();
-        String txtSenha = senha.getText().toString();
-
-        BancoController bd = new BancoController(getBaseContext());
-        String resultado;
-
-        resultado = bd.insereDadosUsuarios(txtNome, integerDtnascimento, txtSexo, integerCep, txtEndereco, integerNumero, txtComplemento, txtBairro, txtCidade, txtEstado, integerTelefone, txtEmail, txtSenha);
-
-        Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
-        limpar();
-        }
-
-    }
+//    public void Salvar() {
+//        String msg = "";
+//        String txtNome = nome.getText().toString();
+//        String integerDtnascimento = dtnascimento.getText().toString();
+//        String txtSexo = sexo.getText().toString();
+//        String integerCep = cep.getText().toString();
+//        String txtEndereco = endereco.getText().toString();
+//        String integerNumero = numero.getText().toString();
+//        String txtComplemento = complemento.getText().toString();
+//        String txtBairro = bairro.getText().toString();
+//        String txtCidade= cidade.getText().toString();
+//        String txtEstado = estado.getText().toString();
+//        String integerTelefone = telefone.getText().toString();
+//        String txtEmail = email.getText().toString();
+//        String txtSenha = senha.getText().toString();
+//
+//        BancoController bd = new BancoController(getBaseContext());
+//        String resultado;
+//
+//        resultado = bd.insereDadosUsuarios(txtNome, integerDtnascimento, txtSexo, integerCep, txtEndereco, integerNumero, txtComplemento, txtBairro, txtCidade, txtEstado, integerTelefone, txtEmail, txtSenha);
+//
+//        Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
+//        limpar();
+//        }
+//
+//    }
 }
 
 
