@@ -22,7 +22,7 @@ public class CriaBanco extends SQLiteOpenHelper {
         sql = "CREATE TABLE usuarios ("
                 + "idUser integer primary key autoincrement,"
                 + "nome text,"
-                + "dtnascimento integer,"
+                + "dtnascimento text,"
                 + "sexo text,"
                 + "cep integer,"
                 + "endereco text,"

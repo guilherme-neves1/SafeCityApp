@@ -25,6 +25,7 @@ import com.google.android.material.textfield.TextInputLayout;
 
 import java.text.BreakIterator;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -138,8 +139,6 @@ public class CreateAccountActivity extends AppCompatActivity {
             if (areFieldsValid()) {
                 // Lógica para registrar o usuário
                 Salvar();
-
-
                 // Mostrar mensagem de sucesso
                 Toast.makeText(CreateAccountActivity.this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
 
@@ -354,30 +353,37 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     public void Salvar() {
         String msg = "";
-        String txtNome = nome.getText().toString();
-        String integerDtnascimento = dtnascimento.getText().toString();
-        String txtSexo = sexo.getText().toString();
-        String integerCep = cep.getText().toString();
-        String txtEndereco = endereco.getText().toString();
-        String integerNumero = numero.getText().toString();
-        String txtComplemento = complemento.getText().toString();
-        String txtBairro = bairro.getText().toString();
-        String txtCidade= cidade.getText().toString();
-        String txtEstado = estado.getText().toString();
-        String integerTelefone = telefone.getText().toString();
-        String txtEmail = email.getText().toString();
-        String txtSenha = senha.getText().toString();
+        String txtNome = fullNameInput.getText().toString();
+        String txtDtnascimento = birthInput.getText().toString();
+        String txtSexo = sexSpinner.getSelectedItem().toString();
+        String IntegerCep = cepInput.getText().toString();
+        String txtEndereco = addressInput.getText().toString();
+        String IntegerNumero = numInput.getText().toString();
+        String txtComplemento = complInput.getText().toString();
+        String txtBairro = distInput.getText().toString();
+        String txtCidade= cityInput.getText().toString();
+        String txtEstado = stateSpinner.getSelectedItem().toString();
+        String IntegerTelefone = telInput.getText().toString();
+        String txtEmail = emailInput.getText().toString();
+        String txtSenha = passwordInput.getText().toString();
+
+
 
         BancoController bd = new BancoController(getBaseContext());
         String resultado;
 
-        resultado = bd.insereDadosUsuarios(txtNome, integerDtnascimento, txtSexo, integerCep, txtEndereco, integerNumero, txtComplemento, txtBairro, txtCidade, txtEstado, integerTelefone, txtEmail, txtSenha);
+        // Convertendo strings para inteiros onde necessário
+        int intCep = Integer.parseInt(IntegerCep);
+        int intNumero = Integer.parseInt(IntegerNumero);
+        int intTelefone = Integer.parseInt(IntegerTelefone);
+
+        resultado = bd.insereDadosUsuarios(txtNome, txtDtnascimento, txtSexo, intCep, txtEndereco, intNumero, txtComplemento, txtBairro, txtCidade, txtEstado, intTelefone, txtEmail, txtSenha);
 
         Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
-        limpar();
+        //limpar();
         }
 
     }
-}
+
 
 
