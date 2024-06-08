@@ -117,8 +117,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:background="@color/white"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#F0F0F0"
+                android:layout_marginHorizontal="8dp"
+                android:elevation="2dp"
+                android:background="@drawable/home_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -179,6 +183,65 @@
                     android:text="Acidente entre carreta com cilindro de gás e caminhão interdita pista expressa da Via Dutra por 2 horas em Guarulhos, Grande SP."
                     android:textSize="14sp"
                     android:textColor="@color/black" />
+
+                <!-- Botões de Interação -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnLike1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_favoriteoff"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Curtir"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnComment1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_comment"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Comentar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnShare1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_share"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Compartilhar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
             <!-- Postagem 2 -->
@@ -187,8 +250,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:background="@color/white"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#F0F0F0"
+                android:layout_marginHorizontal="8dp"
+                android:elevation="2dp"
+                android:background="@drawable/home_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -223,6 +290,9 @@
                             android:textSize="12sp"
                             android:textColor="@color/black"
                             android:layout_marginBottom="4dp" />
+
+
+
                     </LinearLayout>
                 </LinearLayout>
 
@@ -249,6 +319,65 @@
                     android:text="Polícia persegue suspeitos de roubo a casa por 30 km em Guarulhos; 4 foram presos e 1 morreu."
                     android:textSize="14sp"
                     android:textColor="@color/black" />
+
+                <!-- Botões de Interação -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnLike2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_favoriteoff"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Curtir"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnComment2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_comment"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Comentar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnShare2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_share"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Compartilhar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
             <!-- Postagem 3 -->
@@ -257,8 +386,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:background="@color/white"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#F0F0F0"
+                android:layout_marginHorizontal="8dp"
+                android:elevation="2dp"
+                android:background="@drawable/home_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -317,8 +450,67 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Prefeitura libera último viaduto do Trevo de Bonsucesso e complexo que liga a Dutra à avenida Papa João Paulo I"
-                    android:textSize="14sp"
-                    android:textColor="@color/black" />
+                    android:textColor="@color/black"
+                    android:textSize="14sp" />
+
+                <!-- Botões de Interação -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnLike3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_favoriteoff"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Curtir"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnComment3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_comment"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Comentar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnShare3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_share"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Compartilhar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
             <!-- Postagem 4 -->
@@ -327,8 +519,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:background="@color/white"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#F0F0F0"
+                android:layout_marginHorizontal="8dp"
+                android:elevation="2dp"
+                android:background="@drawable/home_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -389,6 +585,66 @@
                     android:text="Passarela provisória é instalada após ponte que dá acesso ao Aeroporto Internacional de SP, em Guarulhos, ceder durante chuva."
                     android:textSize="14sp"
                     android:textColor="@color/black" />
+
+                <!-- Botões de Interação -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnLike4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_favoriteoff"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Curtir"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnComment4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_comment"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Comentar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnShare4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_share"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Compartilhar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+
+
             </LinearLayout>
 
             <!-- Postagem 5 -->
@@ -397,8 +653,12 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:padding="8dp"
-                android:background="@color/white"
-                android:layout_marginBottom="8dp">
+                android:layout_marginBottom="16dp"
+                android:layout_marginTop="8dp"
+                android:backgroundTint="#F0F0F0"
+                android:layout_marginHorizontal="8dp"
+                android:elevation="2dp"
+                android:background="@drawable/home_background">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -459,6 +719,65 @@
                     android:text="Polícia desmantela quadrilha especializada em sequestro e roubo de caminhoneiros em Guarulhos."
                     android:textSize="14sp"
                     android:textColor="@color/black" />
+
+                <!-- Botões de Interação -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingTop="8dp"
+                    android:paddingBottom="8dp">
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnLike5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_favoriteoff"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Curtir"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnComment5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_comment"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Comentar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+
+                    <ImageButton
+                        android:id="@+id/btnShare5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/home_share"
+                        android:background="@android:color/transparent"
+                        android:contentDescription="Compartilhar"
+                        android:padding="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1" />
+                </LinearLayout>
+
+
             </LinearLayout>
 
             <!-- Botão Ver Mais -->
