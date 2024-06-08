@@ -4,6 +4,7 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import java.util.Date;
 
@@ -54,15 +55,23 @@ public class BancoController {
         valores.put("email", txtEmail);
         valores.put("senha", txtSenha);
 
-
-        resultado = db.insert("usuarios", null, valores);
-        db.close();
+        try {
+            resultado = db.insert("usuarios", null, valores);
+            Log.d("BancoController", "Dados inseridos com sucesso: " + valores.toString());
+        } catch (Exception e) {
+            Log.e("BancoController", "Erro ao inserir dados no banco: " + e.getMessage(), e);
+            resultado = -1;
+        } finally {
+            db.close();
+        }
 
         if (resultado == -1)
             return "Erro ao inserir registro";
         else
             return "Registro Inserido com sucesso";
     }
+
+
 
     public Cursor carregaDadosPeloCodigo(int id) {
         Cursor cursor;
@@ -121,3 +130,4 @@ public class BancoController {
     }
 
 }
+

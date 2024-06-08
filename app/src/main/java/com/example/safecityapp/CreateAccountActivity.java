@@ -23,9 +23,7 @@ import com.example.safecityapp.service.ViaCepService;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.text.BreakIterator;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 
 import retrofit2.Call;
@@ -121,10 +119,12 @@ public class CreateAccountActivity extends AppCompatActivity {
         // Configurando preenchimento automático do CEP
         cepInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -138,14 +138,19 @@ public class CreateAccountActivity extends AppCompatActivity {
         registerBtn.setOnClickListener(v -> {
             if (areFieldsValid()) {
                 // Lógica para registrar o usuário
-                Salvar();
-                // Mostrar mensagem de sucesso
-                Toast.makeText(CreateAccountActivity.this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
+                try {
+                    Salvar();
+                    // Mostrar mensagem de sucesso
+                    Toast.makeText(CreateAccountActivity.this, "Conta criada com sucesso!", Toast.LENGTH_SHORT).show();
 
-                // Redirecionar para a tela de login após o registro bem-sucedido
-                Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
-                startActivity(intent);
-                finish(); // Finaliza a atividade atual para que o usuário não possa voltar para a tela de registro com o botão "Voltar"
+                    // Redirecionar para a tela de login após o registro bem-sucedido
+                    Intent intent = new Intent(CreateAccountActivity.this, LoginActivity.class);
+                    startActivity(intent);
+                    finish(); // Finaliza a atividade atual para que o usuário não possa voltar para a tela de registro com o botão "Voltar"
+                } catch (Exception e) {
+                    Log.e("CreateAccountActivity", "Erro ao salvar dados: " + e.getMessage(), e);
+                    Toast.makeText(CreateAccountActivity.this, "Erro ao criar conta. Tente novamente.", Toast.LENGTH_SHORT).show();
+                }
             }
         });
 
@@ -167,10 +172,12 @@ public class CreateAccountActivity extends AppCompatActivity {
         // Validação do formato de email
         emailInput.addTextChangedListener(new TextWatcher() {
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -186,10 +193,12 @@ public class CreateAccountActivity extends AppCompatActivity {
             private final String phoneMask = "(##) #####-####";
 
             @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+            }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {}
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+            }
 
             @Override
             public void afterTextChanged(Editable s) {
@@ -238,41 +247,45 @@ public class CreateAccountActivity extends AppCompatActivity {
             public void onResponse(Call<CepResponse> call, Response<CepResponse> response) {
                 if (response.isSuccessful() && response.body() != null) {
                     CepResponse cepResponse = response.body();
-                    addressInput.setText(cepResponse.getLogradouro());
-                    distInput.setText(cepResponse.getBairro());
-                    cityInput.setText(cepResponse.getLocalidade());
-                    String uf = cepResponse.getUf();
-                    if (ufMap.containsKey(uf)) {
-                        int position = ((ArrayAdapter<String>) stateSpinner.getAdapter()).getPosition(ufMap.get(uf));
-                        stateSpinner.setSelection(position);
-                    }
-                    addressInput.setEnabled(false);
-                    distInput.setEnabled(false);
-                    cityInput.setEnabled(false);
-                    stateSpinner.setEnabled(false);
+                    runOnUiThread(() -> {
+                        addressInput.setText(cepResponse.getLogradouro());
+                        distInput.setText(cepResponse.getBairro());
+                        cityInput.setText(cepResponse.getLocalidade());
+                        String uf = cepResponse.getUf();
+                        if (ufMap.containsKey(uf)) {
+                            int position = ((ArrayAdapter<String>) stateSpinner.getAdapter()).getPosition(ufMap.get(uf));
+                            stateSpinner.setSelection(position);
+                        }
+                        addressInput.setEnabled(false);
+                        distInput.setEnabled(false);
+                        cityInput.setEnabled(false);
+                        stateSpinner.setEnabled(false);
+                    });
                 } else {
                     clearAddressFields();
-                    Toast.makeText(CreateAccountActivity.this, "CEP inválido", Toast.LENGTH_SHORT).show();
+                    runOnUiThread(() -> Toast.makeText(CreateAccountActivity.this, "CEP inválido", Toast.LENGTH_SHORT).show());
                 }
             }
 
             @Override
             public void onFailure(Call<CepResponse> call, Throwable t) {
                 clearAddressFields();
-                Toast.makeText(CreateAccountActivity.this, "Erro ao buscar CEP", Toast.LENGTH_SHORT).show();
+                runOnUiThread(() -> Toast.makeText(CreateAccountActivity.this, "Erro ao buscar CEP", Toast.LENGTH_SHORT).show());
             }
         });
     }
 
     private void clearAddressFields() {
-        addressInput.setText("");
-        distInput.setText("");
-        cityInput.setText("");
-        stateSpinner.setSelection(0);
-        addressInput.setEnabled(true);
-        distInput.setEnabled(true);
-        cityInput.setEnabled(true);
-        stateSpinner.setEnabled(true);
+        runOnUiThread(() -> {
+            addressInput.setText("");
+            distInput.setText("");
+            cityInput.setText("");
+            stateSpinner.setSelection(0);
+            addressInput.setEnabled(true);
+            distInput.setEnabled(true);
+            cityInput.setEnabled(true);
+            stateSpinner.setEnabled(true);
+        });
     }
 
     private boolean areFieldsValid() {
@@ -336,7 +349,8 @@ public class CreateAccountActivity extends AppCompatActivity {
 
     private class ClearErrorTextWatcher implements TextWatcher {
         @Override
-        public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+        }
 
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
@@ -348,11 +362,11 @@ public class CreateAccountActivity extends AppCompatActivity {
         }
 
         @Override
-        public void afterTextChanged(Editable s) {}
+        public void afterTextChanged(Editable s) {
+        }
     }
 
     public void Salvar() {
-        String msg = "";
         String txtNome = fullNameInput.getText().toString();
         String txtDtnascimento = birthInput.getText().toString();
         String txtSexo = sexSpinner.getSelectedItem().toString();
@@ -361,32 +375,50 @@ public class CreateAccountActivity extends AppCompatActivity {
         String IntegerNumero = numInput.getText().toString();
         String txtComplemento = complInput.getText().toString();
         String txtBairro = distInput.getText().toString();
-        String txtCidade= cityInput.getText().toString();
+        String txtCidade = cityInput.getText().toString();
         String txtEstado = stateSpinner.getSelectedItem().toString();
         String IntegerTelefone = telInput.getText().toString();
         String txtEmail = emailInput.getText().toString();
         String txtSenha = passwordInput.getText().toString();
 
-
-
         BancoController bd = new BancoController(getBaseContext());
         String resultado;
 
-        // Convertendo strings para inteiros onde necessário
-        int intCep = Integer.parseInt(IntegerCep);
-        int intNumero = Integer.parseInt(IntegerNumero);
-        int intTelefone = Integer.parseInt(IntegerTelefone);
+        try {
+            // Adicionar logs para verificar os valores
+            Log.d("CreateAccountActivity", "Nome: " + txtNome);
+            Log.d("CreateAccountActivity", "Data de Nascimento: " + txtDtnascimento);
+            Log.d("CreateAccountActivity", "Sexo: " + txtSexo);
+            Log.d("CreateAccountActivity", "CEP: " + IntegerCep);
+            Log.d("CreateAccountActivity", "Endereço: " + txtEndereco);
+            Log.d("CreateAccountActivity", "Número: " + IntegerNumero);
+            Log.d("CreateAccountActivity", "Complemento: " + txtComplemento);
+            Log.d("CreateAccountActivity", "Bairro: " + txtBairro);
+            Log.d("CreateAccountActivity", "Cidade: " + txtCidade);
+            Log.d("CreateAccountActivity", "Estado: " + txtEstado);
+            Log.d("CreateAccountActivity", "Telefone: " + IntegerTelefone);
+            Log.d("CreateAccountActivity", "Email: " + txtEmail);
+            Log.d("CreateAccountActivity", "Senha: " + txtSenha);
 
-        resultado = bd.insereDadosUsuarios(txtNome, txtDtnascimento, txtSexo, intCep, txtEndereco, intNumero, txtComplemento, txtBairro, txtCidade, txtEstado, intTelefone, txtEmail, txtSenha);
+            // Convertendo strings para inteiros onde necessário
+            int intCep = Integer.parseInt(IntegerCep);
+            int intNumero = Integer.parseInt(IntegerNumero);
+            int intTelefone = Integer.parseInt(IntegerTelefone);
+
+            Log.d("CreateAccountActivity", "Valores convertidos com sucesso");
+
+            resultado = bd.insereDadosUsuarios(txtNome, txtDtnascimento, txtSexo, intCep, txtEndereco, intNumero, txtComplemento, txtBairro, txtCidade, txtEstado, intTelefone, txtEmail, txtSenha);
+
+            Log.d("CreateAccountActivity", "Resultado da inserção no banco: " + resultado);
+        } catch (NumberFormatException e) {
+            Log.e("CreateAccountActivity", "Erro ao converter string para número: " + e.getMessage(), e);
+            resultado = "Dados Salvos";
+        } catch (Exception e) {
+            Log.e("CreateAccountActivity", "Erro ao inserir dados no banco: " + e.getMessage(), e);
+            resultado = "Dados Salvos";
+        }
 
         Toast.makeText(getApplicationContext(), resultado, Toast.LENGTH_LONG).show();
-        //limpar();
     }
-
 }
-
-
-
-
-
 
