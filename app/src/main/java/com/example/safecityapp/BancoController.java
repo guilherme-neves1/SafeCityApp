@@ -4,6 +4,9 @@ import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
+
+import java.util.Date;
 
 public class BancoController {
     private SQLiteDatabase db;
@@ -32,39 +35,43 @@ public class BancoController {
             return "Registro Inserido com sucesso";
     }
 
-    public String insereDadosUsuarios(String txtNome, Integer integerDtnascimento, String txtSexo, Integer integerCep, String txtEndereco, Integer integerNumero, String txtComplemento, String txtBairro, String txtCidade, String txtEstado, Integer integerTelefone, String txtEmail, String txtSenha) {
-        return null;
-    }
-
-    {
+    public String insereDadosUsuarios(String txtNome, String txtDtnascimento, String txtSexo, Integer IntegerCep, String txtEndereco, Integer IntegerNumero, String txtComplemento, String txtBairro, String txtCidade, String txtEstado, Integer IntegerTelefone, String txtEmail, String txtSenha) {
         ContentValues valores;
         long resultado;
         db = banco.getWritableDatabase();
 
         valores = new ContentValues();
         valores.put("nome", txtNome);
-        valores.put("dtnascimento", integerDtnascimento);
+        valores.put("dtnascimento", txtDtnascimento);
         valores.put("sexo", txtSexo);
-        valores.put("cep", integerCep);
+        valores.put("cep", IntegerCep);
         valores.put("endereco", txtEndereco);
-        valores.put("numero", integerNumero);
-        valores.put("complemento", txtCOmplemento);
+        valores.put("numero", IntegerNumero);
+        valores.put("complemento", txtComplemento);
         valores.put("bairro", txtBairro);
         valores.put("cidade", txtCidade);
         valores.put("estado", txtEstado);
-        valores.put("telefone", integerTelefone);
+        valores.put("telefone", IntegerTelefone);
         valores.put("email", txtEmail);
         valores.put("senha", txtSenha);
 
-
-        resultado = db.insert("contatos", null, valores);
-        db.close();
+        try {
+            resultado = db.insert("usuarios", null, valores);
+            Log.d("BancoController", "Dados inseridos com sucesso: " + valores.toString());
+        } catch (Exception e) {
+            Log.e("BancoController", "Erro ao inserir dados no banco: " + e.getMessage(), e);
+            resultado = -1;
+        } finally {
+            db.close();
+        }
 
         if (resultado == -1)
             return "Erro ao inserir registro";
         else
             return "Registro Inserido com sucesso";
     }
+
+
 
     public Cursor carregaDadosPeloCodigo(int id) {
         Cursor cursor;
