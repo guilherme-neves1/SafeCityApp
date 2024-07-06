@@ -84,6 +84,7 @@
             android:textSize="18sp"
             android:textColor="#000000"
             android:textColorHint="#434343"
+            android:inputType="textPassword"
             android:padding="18dp"/>
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -102,7 +103,6 @@
         android:textSize="18sp"
         app:strokeWidth="1dp"
         app:strokeColor="#E4DCDB"
-        android:inputType="numberPassword"
         />
 
     <TextView
